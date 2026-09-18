@@ -9,9 +9,19 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Allura&display=swap" rel="stylesheet">
 
 <style>
+
+:root {
+    --bordo: #6F231C;
+    --mavi: #75B6E5;
+    --altin: #D49E3E;
+    --beyaz: #ffffff;
+    --cam: rgba(255,255,255,.105);
+    --cam-border: rgba(255,255,255,.19);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -19,12 +29,13 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     min-height: 100%;
     font-family: "Inter", sans-serif;
-    background: #07110d;
-    color: #fff;
+    background: #06100b;
+    color: white;
 }
 
 body {
@@ -38,21 +49,32 @@ body {
 #intro {
     position: fixed;
     inset: 0;
-    z-index: 9999;
-    background:
-        radial-gradient(circle at 50% 42%, rgba(255,255,255,.98) 0%, rgba(245,245,245,.98) 35%, #e9e9e9 100%);
-    color: #1b1b1b;
+    z-index: 99999;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #ffffff 0%,
+            #f7f7f7 40%,
+            #e7e7e7 100%
+        );
+
+    color: #171717;
+
     overflow: hidden;
-    animation: introOut .8s ease 3.15s forwards;
+
+    animation: introOut .8s ease 3.25s forwards;
 }
 
 #intro::before {
     content: "";
     position: absolute;
     inset: -50%;
+
     background:
         repeating-linear-gradient(
             115deg,
@@ -61,58 +83,96 @@ body {
             transparent 1px,
             transparent 5px
         );
+
     transform: rotate(-8deg);
-    opacity: .7;
+    opacity: .75;
 }
 
 #intro::after {
     content: "";
+
     position: absolute;
+
     width: 520px;
     height: 520px;
+
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255,255,255,.95), transparent 68%);
-    filter: blur(10px);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.95),
+            transparent 68%
+        );
+
+    filter: blur(12px);
+
     animation: introLight 3s ease-in-out infinite;
 }
 
 .intro-content {
     position: relative;
-    z-index: 3;
+    z-index: 5;
+
     width: 90%;
     max-width: 500px;
+
     text-align: center;
 }
 
 .intro-logo {
     width: 115px;
     height: 115px;
+
     object-fit: contain;
+
     opacity: 0;
-    transform: scale(.65) translateY(-15px);
-    animation: logoIn .8s cubic-bezier(.2,.8,.2,1) .15s forwards;
-    filter: drop-shadow(0 8px 18px rgba(0,0,0,.14));
+
+    transform:
+        scale(.65)
+        translateY(-15px);
+
+    animation:
+        logoIn .8s cubic-bezier(.2,.8,.2,1) .15s forwards;
+
+    filter:
+        drop-shadow(0 8px 18px rgba(0,0,0,.14));
 }
 
 .intro-city {
     margin-top: 25px;
+
     font-size: 15px;
     font-weight: 700;
+
     letter-spacing: 6px;
+
     opacity: 0;
+
     transform: translateX(-35px);
-    animation: slideRight .65s ease .65s forwards;
+
+    animation:
+        slideRight .65s ease .65s forwards;
 }
 
 .intro-school {
     margin-top: 8px;
-    font-size: clamp(25px, 7vw, 38px);
+
+    font-size:
+        clamp(25px, 7vw, 38px);
+
     line-height: 1.08;
+
     font-weight: 800;
+
     letter-spacing: -1px;
+
     opacity: 0;
+
     transform: translateX(45px);
-    animation: slideLeft .7s cubic-bezier(.2,.8,.2,1) .9s forwards;
+
+    animation:
+        slideLeft .7s cubic-bezier(.2,.8,.2,1) .9s forwards;
 }
 
 .intro-school span {
@@ -120,264 +180,458 @@ body {
 }
 
 .intro-name {
-    margin-top: 18px;
-    font-family: "Pacifico", cursive;
-    font-size: clamp(25px, 7vw, 35px);
-    color: #172b5c;
+    margin-top: 17px;
+
+    font-family: "Allura", cursive;
+
+    font-size:
+        clamp(32px, 9vw, 44px);
+
+    color: var(--bordo);
+
     opacity: 0;
+
     transform: translateY(22px);
-    animation: nameIn .7s ease 1.45s forwards;
+
+    animation:
+        nameIn .7s ease 1.45s forwards;
 }
 
 .intro-line {
     width: 0;
     height: 1px;
-    background: rgba(0,0,0,.35);
-    margin: 18px auto 0;
-    animation: lineIn .7s ease 1.8s forwards;
+
+    background: rgba(0,0,0,.28);
+
+    margin: 12px auto 0;
+
+    animation:
+        lineIn .7s ease 1.8s forwards;
 }
 
+
 /* =====================================================
-   MAIN
+   MAIN BACKGROUND
 ===================================================== */
 
 #main {
     min-height: 100vh;
+
     position: relative;
+
     overflow: hidden;
+
     opacity: 0;
-    animation: mainIn .9s ease 3.25s forwards;
-    background:
-        linear-gradient(rgba(4,20,12,.76), rgba(4,18,11,.88)),
-        radial-gradient(circle at 50% 20%, #1c5232 0%, #0c2919 45%, #051009 100%);
+
+    animation:
+        mainIn .9s ease 3.3s forwards;
+
+    background-image:
+        linear-gradient(
+            rgba(3,13,8,.64),
+            rgba(3,15,9,.90)
+        ),
+        url("assets/futbol-background.jpg");
+
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
-/* Futbol sahası çizgileri */
 
-.pitch {
+/* =====================================================
+   ATMOSPHERE
+===================================================== */
+
+.field-overlay {
     position: absolute;
     inset: 0;
+
     pointer-events: none;
-    opacity: .17;
-    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            rgba(117,182,229,.12),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 10% 70%,
+            rgba(111,35,28,.18),
+            transparent 35%
+        );
+
+    z-index: 1;
 }
 
-.pitch::before {
-    content: "";
+.pitch-lines {
     position: absolute;
-    width: 145%;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .10;
+
+    z-index: 2;
+}
+
+.pitch-lines::before {
+    content: "";
+
+    position: absolute;
+
+    width: 130%;
     height: 70%;
-    left: -22%;
-    top: 17%;
-    border: 2px solid rgba(255,255,255,.5);
-    border-radius: 3px;
-    transform: perspective(600px) rotateX(45deg);
+
+    left: -15%;
+    top: 18%;
+
+    border:
+        2px solid rgba(255,255,255,.45);
+
+    transform:
+        perspective(700px)
+        rotateX(42deg);
 }
 
-.pitch::after {
+.pitch-lines::after {
     content: "";
+
     position: absolute;
-    width: 300px;
-    height: 300px;
-    border: 2px solid rgba(255,255,255,.5);
-    border-radius: 50%;
+
+    width: 260px;
+    height: 260px;
+
     left: 50%;
     top: 42%;
-    transform: translate(-50%, -50%);
-}
 
-/* Hafif saha ışıkları */
+    border:
+        2px solid rgba(255,255,255,.45);
 
-.field-light {
-    position: absolute;
-    width: 400px;
-    height: 400px;
     border-radius: 50%;
-    background: rgba(73,180,105,.14);
-    filter: blur(70px);
-    pointer-events: none;
+
+    transform:
+        translate(-50%,-50%);
 }
 
-.light-one {
-    top: -170px;
-    left: -100px;
-}
 
-.light-two {
-    right: -180px;
-    top: 25%;
-}
-
-.light-three {
-    bottom: -180px;
-    left: 25%;
-}
-
-/* Ana içerik */
+/* =====================================================
+   CONTAINER
+===================================================== */
 
 .container {
     position: relative;
-    z-index: 5;
+    z-index: 10;
+
     width: min(94%, 540px);
+
     margin: auto;
-    padding: 30px 0 55px;
+
+    padding:
+        30px
+        0
+        60px;
 }
 
-/* Üst başlık */
+
+/* =====================================================
+   HEADER
+===================================================== */
 
 .header {
     text-align: center;
 }
 
 .header-logo {
-    width: 82px;
-    height: 82px;
+    width: 88px;
+    height: 88px;
+
     object-fit: contain;
-    filter: drop-shadow(0 7px 18px rgba(0,0,0,.35));
+
+    filter:
+        drop-shadow(0 8px 20px rgba(0,0,0,.42));
 }
 
 .header-city {
-    margin-top: 14px;
-    font-size: 12px;
+    margin-top: 13px;
+
+    font-size: 11px;
     font-weight: 700;
+
     letter-spacing: 4px;
-    opacity: .85;
+
+    color: rgba(255,255,255,.85);
 }
 
 .header-title {
-    margin-top: 5px;
-    font-size: 24px;
-    line-height: 1.08;
+    margin-top: 6px;
+
+    font-size:
+        clamp(23px, 7vw, 31px);
+
+    line-height: 1.04;
+
     font-weight: 800;
-    letter-spacing: -.6px;
+
+    letter-spacing: -.5px;
+
+    text-shadow:
+        0 3px 14px rgba(0,0,0,.55);
+}
+
+.header-title .bordo-text {
+    color: var(--bordo);
+
+    -webkit-text-stroke:
+        1.2px rgba(255,255,255,.90);
+
+    paint-order: stroke fill;
+}
+
+.header-title .mavi-text {
+    color: var(--mavi);
+
+    -webkit-text-stroke:
+        1.2px rgba(255,255,255,.90);
+
+    paint-order: stroke fill;
 }
 
 .header-name {
-    margin-top: 7px;
-    font-family: "Pacifico", cursive;
-    font-size: 23px;
+    margin-top: 6px;
+
+    font-family: "Allura", cursive;
+
+    font-size: 31px;
+
     color: #fff;
-    text-shadow: 0 3px 15px rgba(0,0,0,.35);
+
+    text-shadow:
+        0 3px 15px rgba(0,0,0,.55);
 }
 
+
 /* =====================================================
-   FOTO SLIDER
+   PHOTO SLIDER
 ===================================================== */
 
 .slider {
     position: relative;
+
     width: 100%;
-    height: 225px;
+    height: 245px;
+
     margin-top: 27px;
-    border-radius: 24px;
+
+    border-radius: 25px;
+
     overflow: hidden;
-    background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.17);
-    box-shadow: 0 20px 50px rgba(0,0,0,.28);
-    backdrop-filter: blur(14px);
+
+    background:
+        rgba(255,255,255,.08);
+
+    border:
+        1px solid rgba(255,255,255,.20);
+
+    box-shadow:
+        0 22px 55px rgba(0,0,0,.38);
+
+    backdrop-filter:
+        blur(15px);
 }
 
 .slide {
     position: absolute;
     inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
     opacity: 0;
-    transition: opacity 1s ease;
+
+    transition:
+        opacity 1s ease;
 }
 
 .slide.active {
     opacity: 1;
 }
 
-.slide-placeholder {
-    text-align: center;
-    opacity: .55;
+.slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transform: scale(1.03);
+
+    transition:
+        transform 5s ease;
 }
 
-.slide-placeholder .ball {
-    font-size: 45px;
-    margin-bottom: 8px;
+.slide.active img {
+    transform: scale(1.08);
 }
 
-.slide-placeholder p {
-    font-size: 12px;
-    letter-spacing: 1px;
+.slide::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.42),
+            transparent 50%
+        );
 }
+
 
 /* =====================================================
-   HIZLI BUTONLAR
+   QUICK BUTTONS
 ===================================================== */
 
 .quick-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
     gap: 11px;
+
     margin-top: 18px;
 }
 
 .quick-btn {
-    min-height: 62px;
-    padding: 10px 9px;
+    min-height: 64px;
+
+    padding:
+        10px 12px;
+
     border-radius: 17px;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     gap: 9px;
+
     color: #fff;
+
     text-decoration: none;
-    font-size: 12px;
+
+    font-size: 11.5px;
     font-weight: 600;
-    border: 1px solid rgba(255,255,255,.16);
-    background: rgba(255,255,255,.09);
-    box-shadow: 0 8px 24px rgba(0,0,0,.16);
-    backdrop-filter: blur(18px);
-    transition: transform .2s ease, background .2s ease;
+
+    border:
+        1px solid var(--cam-border);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.14),
+            rgba(255,255,255,.055)
+        );
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,.20),
+        inset 0 1px 0 rgba(255,255,255,.13);
+
+    backdrop-filter:
+        blur(18px);
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
 }
 
 .quick-btn:active {
     transform: scale(.96);
 }
 
-.icon {
-    width: 27px;
-    height: 27px;
+.quick-icon {
+    width: 29px;
+    height: 29px;
+
+    flex:
+        0 0 29px;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     border-radius: 9px;
-    background: rgba(255,255,255,.13);
-    font-size: 14px;
+
+    background:
+        rgba(255,255,255,.12);
+
+    border:
+        1px solid rgba(255,255,255,.12);
 }
 
+.quick-icon svg {
+    width: 16px;
+    height: 16px;
+
+    stroke: currentColor;
+
+    fill: none;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
 /* =====================================================
-   BÜYÜK BUTONLAR
+   BIG BUTTONS
 ===================================================== */
 
 .big-buttons {
     display: flex;
+
     flex-direction: column;
+
     gap: 13px;
+
     margin-top: 23px;
 }
 
 .big-btn {
-    min-height: 72px;
-    border-radius: 20px;
+    min-height: 76px;
+
+    border-radius: 21px;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     color: #fff;
+
     text-decoration: none;
-    font-size: 15px;
+
+    font-size: 14px;
+
     font-weight: 700;
-    letter-spacing: .3px;
-    border: 1px solid rgba(255,255,255,.18);
-    box-shadow: 0 12px 30px rgba(0,0,0,.24);
+
+    letter-spacing: .25px;
+
+    border:
+        1px solid rgba(255,255,255,.20);
+
+    box-shadow:
+        0 14px 35px rgba(0,0,0,.28);
+
     position: relative;
+
     overflow: hidden;
-    transition: transform .2s ease;
+
+    transition:
+        transform .2s ease;
 }
 
 .big-btn:active {
@@ -386,110 +640,206 @@ body {
 
 .big-btn::after {
     content: "";
+
     position: absolute;
+
     width: 150px;
     height: 200%;
+
     top: -50%;
     left: -180px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.22),
+            transparent
+        );
+
     transform: rotate(20deg);
-    animation: shine 4s infinite;
+
+    animation:
+        shine 4s infinite;
 }
 
 .bordo {
-    background: linear-gradient(135deg, #8b1731, #5e0d20);
+    background:
+        linear-gradient(
+            135deg,
+            #6F231C,
+            #501711
+        );
 }
 
 .mavi {
-    background: linear-gradient(135deg, #173f91, #10285e);
+    background:
+        linear-gradient(
+            135deg,
+            #75B6E5,
+            #397fae
+        );
 }
 
+
 /* =====================================================
-   ÖN KAYIT
+   REGISTER
 ===================================================== */
 
 .register {
-    margin-top: 22px;
-    position: relative;
+    margin-top: 23px;
 }
 
 .register-btn {
     width: 100%;
-    min-height: 78px;
+
+    min-height: 80px;
+
     border-radius: 22px;
-    border: 1px solid rgba(255,255,255,.3);
+
+    border:
+        1px solid rgba(255,255,255,.45);
+
     background:
-        linear-gradient(135deg, rgba(255,255,255,.17), rgba(255,255,255,.06));
-    backdrop-filter: blur(20px);
+        linear-gradient(
+            135deg,
+            #D49E3E,
+            #b57d25
+        );
+
     color: #fff;
-    font-size: 18px;
+
+    font-size: 19px;
+
     font-weight: 800;
-    letter-spacing: .5px;
+
+    letter-spacing: .7px;
+
     box-shadow:
-        0 15px 45px rgba(0,0,0,.3),
-        inset 0 1px 0 rgba(255,255,255,.2);
+        0 14px 38px rgba(0,0,0,.32),
+        0 0 0 1px rgba(212,158,62,.20);
+
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
 }
 
-/* Alt yazı */
+.register-btn::after {
+    content: "";
 
-.footer {
-    margin-top: 28px;
-    text-align: center;
-    font-size: 10px;
-    letter-spacing: 2px;
-    opacity: .4;
+    position: absolute;
+
+    width: 100px;
+    height: 180%;
+
+    top: -40%;
+    left: -140px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.35),
+            transparent
+        );
+
+    transform: rotate(20deg);
+
+    animation:
+        registerShine 3.2s infinite;
 }
+
 
 /* =====================================================
-   ANİMASYONLAR
+   FOOTER
+===================================================== */
+
+.footer {
+    margin-top: 30px;
+
+    text-align: center;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    opacity: .42;
+}
+
+
+/* =====================================================
+   ANIMATIONS
 ===================================================== */
 
 @keyframes logoIn {
+
     to {
         opacity: 1;
-        transform: scale(1) translateY(0);
+
+        transform:
+            scale(1)
+            translateY(0);
     }
 }
 
 @keyframes slideRight {
+
     to {
         opacity: 1;
-        transform: translateX(0);
+
+        transform:
+            translateX(0);
     }
 }
 
 @keyframes slideLeft {
+
     to {
         opacity: 1;
-        transform: translateX(0);
+
+        transform:
+            translateX(0);
     }
 }
 
 @keyframes nameIn {
+
     to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+            translateY(0);
     }
 }
 
 @keyframes lineIn {
+
     to {
         width: 130px;
     }
 }
 
 @keyframes introLight {
-    0%, 100% {
-        transform: scale(.9);
+
+    0%,100% {
+        transform:
+            scale(.9);
+
         opacity: .5;
     }
+
     50% {
-        transform: scale(1.15);
+        transform:
+            scale(1.15);
+
         opacity: .9;
     }
 }
 
 @keyframes introOut {
+
     to {
         opacity: 0;
         visibility: hidden;
@@ -497,23 +847,41 @@ body {
 }
 
 @keyframes mainIn {
+
     to {
         opacity: 1;
     }
 }
 
 @keyframes shine {
+
     0% {
         left: -180px;
     }
-    35%, 100% {
+
+    35%,100% {
         left: 600px;
     }
 }
 
-/* Küçük ekranlar */
+@keyframes registerShine {
+
+    0% {
+        left: -140px;
+    }
+
+    45%,100% {
+        left: 600px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
 
 @media (max-width: 380px) {
+
     .container {
         width: 92%;
     }
@@ -523,17 +891,21 @@ body {
     }
 
     .slider {
-        height: 195px;
+        height: 210px;
     }
 
     .quick-btn {
-        font-size: 11px;
+        font-size: 10.5px;
     }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <!-- =====================================================
      INTRO
@@ -553,8 +925,11 @@ body {
         </div>
 
         <div class="intro-school">
+
             <span>TRABZONSPOR</span>
+
             <span>FUTBOL OKULU</span>
+
         </div>
 
         <div class="intro-name">
@@ -569,18 +944,18 @@ body {
 
 
 <!-- =====================================================
-     ANA SAYFA
+     MAIN
 ===================================================== -->
 
 <main id="main">
 
-    <div class="pitch"></div>
+    <div class="field-overlay"></div>
 
-    <div class="field-light light-one"></div>
-    <div class="field-light light-two"></div>
-    <div class="field-light light-three"></div>
+    <div class="pitch-lines"></div>
+
 
     <div class="container">
+
 
         <!-- HEADER -->
 
@@ -596,8 +971,17 @@ body {
             </div>
 
             <div class="header-title">
-                TRABZONSPOR<br>
-                FUTBOL OKULU
+
+                <span class="bordo-text">
+                    TRABZONSPOR
+                </span>
+
+                <br>
+
+                <span class="mavi-text">
+                    FUTBOL OKULU
+                </span>
+
             </div>
 
             <div class="header-name">
@@ -607,110 +991,271 @@ body {
         </header>
 
 
-        <!-- FOTOĞRAF SLIDER -->
+        <!-- =================================================
+             SLIDER
+        ================================================== -->
 
         <section class="slider">
 
             <div class="slide active">
-                <div class="slide-placeholder">
-                    <div class="ball">⚽</div>
-                    <p>FUTBOL OKULUMUZDAN KARELER</p>
-                </div>
+
+                <img
+                    src="assets/antreman01.jpg"
+                    alt="Trabzonspor Futbol Okulu">
+
             </div>
 
             <div class="slide">
-                <div class="slide-placeholder">
-                    <div class="ball">🏆</div>
-                    <p>BAŞARI • TAKIM • GELECEK</p>
-                </div>
+
+                <img
+                    src="assets/antreman02.jpg"
+                    alt="Trabzonspor Futbol Okulu Antrenman">
+
             </div>
 
             <div class="slide">
-                <div class="slide-placeholder">
-                    <div class="ball">🥅</div>
-                    <p>ANTRENMANLARIMIZ</p>
-                </div>
+
+                <img
+                    src="assets/antreman03.jpg"
+                    alt="Trabzonspor Futbol Okulu">
+
             </div>
 
         </section>
 
 
-        <!-- HIZLI ERİŞİM -->
+        <!-- =================================================
+             QUICK LINKS
+        ================================================== -->
 
         <section class="quick-grid">
 
+
+            <!-- TELEFON -->
+
             <a href="tel:+905000000000" class="quick-btn">
-                <span class="icon">☎</span>
+
+                <span class="quick-icon">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+                        19.8 19.8 0 0 1-8.63-3.07
+                        19.5 19.5 0 0 1-6-6
+                        A19.8 19.8 0 0 1 2.12 4.18
+                        2 2 0 0 1 4.11 2h3
+                        a2 2 0 0 1 2 1.72
+                        c.12.9.33 1.78.62 2.61
+                        a2 2 0 0 1-.45 2.11L8 9.73
+                        a16 16 0 0 0 6 6l1.29-1.29
+                        a2 2 0 0 1 2.11-.45
+                        c.83.29 1.71.5 2.61.62
+                        A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+
+                </span>
+
                 Telefon
+
             </a>
 
+
+            <!-- REHBER -->
+
             <a href="#" class="quick-btn">
-                <span class="icon">👤</span>
+
+                <span class="quick-icon">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4
+                        H6a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <line x1="19" y1="8" x2="19" y2="14"/>
+                        <line x1="22" y1="11" x2="16" y2="11"/>
+                    </svg>
+
+                </span>
+
                 Rehbere Kaydet
+
             </a>
+
+
+            <!-- WHATSAPP -->
 
             <a href="https://wa.me/905000000000" class="quick-btn">
-                <span class="icon">◉</span>
+
+                <span class="quick-icon">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M21 11.5a8.4 8.4 0 0 1-9
+                        8.4 8.7 8.7 0 0 1-4.1-1
+                        L3 20l1.2-4.5
+                        A8.3 8.3 0 1 1 21 11.5z"/>
+                        <path d="M8.5 8.5c.2 2
+                        2.5 4.8 5 5.3
+                        l1.3-1.1
+                        c.2-.2.5-.2.8-.1
+                        l1.4.7"/>
+                    </svg>
+
+                </span>
+
                 WhatsApp
+
             </a>
 
+
+            <!-- KONUM -->
+
             <a href="#" class="quick-btn">
-                <span class="icon">⌖</span>
+
+                <span class="quick-icon">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 10c0 5-8 12-8 12
+                        S4 15 4 10a8 8 0 1 1 16 0z"/>
+                        <circle cx="12" cy="10" r="2.5"/>
+                    </svg>
+
+                </span>
+
                 Konum
+
             </a>
 
+
+            <!-- INSTAGRAM -->
+
             <a href="#" class="quick-btn">
-                <span class="icon">◎</span>
+
+                <span class="quick-icon">
+
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="18" height="18"
+                        rx="5"/>
+                        <circle cx="12" cy="12" r="4"/>
+                        <circle cx="17.5" cy="6.5" r=".7"
+                        fill="currentColor"
+                        stroke="none"/>
+                    </svg>
+
+                </span>
+
                 Instagram
+
             </a>
 
+
+            <!-- FACEBOOK -->
+
             <a href="#" class="quick-btn">
-                <span class="icon">f</span>
+
+                <span class="quick-icon">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M14 8h3V4h-3
+                        c-3 0-5 2-5 5v3H6v4h3v5h4v-5h3
+                        l1-4h-4V9c0-.7.3-1 1-1z"
+                        fill="currentColor"
+                        stroke="none"/>
+                    </svg>
+
+                </span>
+
                 Facebook
+
             </a>
 
+
+            <!-- GOOGLE -->
+
             <a href="#" class="quick-btn">
-                <span class="icon">★</span>
+
+                <span class="quick-icon">
+
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 3l2.1 5.8L20 11
+                        l-5.9 2.2L12 19l-2.1-5.8L4 11
+                        l5.9-2.2L12 3z"/>
+                    </svg>
+
+                </span>
+
                 Google Değerlendirme
+
             </a>
 
+
+            <!-- IBAN -->
+
             <a href="#" class="quick-btn">
-                <span class="icon">₺</span>
+
+                <span class="quick-icon">
+
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="6" width="18" height="13"
+                        rx="2"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                        <line x1="7" y1="15" x2="11" y2="15"/>
+                    </svg>
+
+                </span>
+
                 IBAN
+
             </a>
+
 
         </section>
 
 
-        <!-- BÜYÜK BUTONLAR -->
+        <!-- =================================================
+             BIG BUTTONS
+        ================================================== -->
 
         <section class="big-buttons">
 
+
             <a href="#" class="big-btn bordo">
-                ANTRENMAN FOTOĞRAFLARI
+
+                ANTREMANLARIMIZDAN GÖRÜNTÜLER
+
             </a>
 
+
             <a href="#" class="big-btn mavi">
+
                 FUTBOL OKULUMUZ HAKKINDA
+
             </a>
+
 
         </section>
 
 
-        <!-- ÖN KAYIT -->
+        <!-- =================================================
+             REGISTER
+        ================================================== -->
 
         <section class="register">
 
-            <button class="register-btn">
+            <button
+                class="register-btn"
+                type="button">
+
                 ÖN KAYIT
+
             </button>
 
         </section>
 
 
         <footer class="footer">
+
             ALANYA TRABZONSPOR FUTBOL OKULU
+
         </footer>
+
 
     </div>
 
@@ -723,12 +1268,15 @@ body {
    FOTOĞRAF SLIDER
 ===================================================== */
 
-const slides = document.querySelectorAll(".slide");
+const slides =
+    document.querySelectorAll(".slide");
+
 let currentSlide = 0;
 
 setInterval(() => {
 
-    slides[currentSlide].classList.remove("active");
+    slides[currentSlide]
+        .classList.remove("active");
 
     currentSlide++;
 
@@ -736,19 +1284,22 @@ setInterval(() => {
         currentSlide = 0;
     }
 
-    slides[currentSlide].classList.add("active");
+    slides[currentSlide]
+        .classList.add("active");
 
 }, 3500);
 
 
 /* =====================================================
-   INTRO SONRASI SCROLLU ENGELLE
+   INTRO SONRASI SCROLL
 ===================================================== */
 
 document.body.style.overflow = "hidden";
 
 setTimeout(() => {
+
     document.body.style.overflow = "auto";
+
 }, 3500);
 
 </script>
@@ -756,4 +1307,3 @@ setTimeout(() => {
 </body>
 </html>
 ```
-
