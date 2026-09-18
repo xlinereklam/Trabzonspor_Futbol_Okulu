@@ -1,1 +1,759 @@
+```html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Alanya Trabzonspor Futbol Okulu | Ali Göktaş</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+    font-family: "Inter", sans-serif;
+    background: #07110d;
+    color: #fff;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+#intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background:
+        radial-gradient(circle at 50% 42%, rgba(255,255,255,.98) 0%, rgba(245,245,245,.98) 35%, #e9e9e9 100%);
+    color: #1b1b1b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    animation: introOut .8s ease 3.15s forwards;
+}
+
+#intro::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background:
+        repeating-linear-gradient(
+            115deg,
+            rgba(0,0,0,.018) 0px,
+            rgba(0,0,0,.018) 1px,
+            transparent 1px,
+            transparent 5px
+        );
+    transform: rotate(-8deg);
+    opacity: .7;
+}
+
+#intro::after {
+    content: "";
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,.95), transparent 68%);
+    filter: blur(10px);
+    animation: introLight 3s ease-in-out infinite;
+}
+
+.intro-content {
+    position: relative;
+    z-index: 3;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.intro-logo {
+    width: 115px;
+    height: 115px;
+    object-fit: contain;
+    opacity: 0;
+    transform: scale(.65) translateY(-15px);
+    animation: logoIn .8s cubic-bezier(.2,.8,.2,1) .15s forwards;
+    filter: drop-shadow(0 8px 18px rgba(0,0,0,.14));
+}
+
+.intro-city {
+    margin-top: 25px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    opacity: 0;
+    transform: translateX(-35px);
+    animation: slideRight .65s ease .65s forwards;
+}
+
+.intro-school {
+    margin-top: 8px;
+    font-size: clamp(25px, 7vw, 38px);
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -1px;
+    opacity: 0;
+    transform: translateX(45px);
+    animation: slideLeft .7s cubic-bezier(.2,.8,.2,1) .9s forwards;
+}
+
+.intro-school span {
+    display: block;
+}
+
+.intro-name {
+    margin-top: 18px;
+    font-family: "Pacifico", cursive;
+    font-size: clamp(25px, 7vw, 35px);
+    color: #172b5c;
+    opacity: 0;
+    transform: translateY(22px);
+    animation: nameIn .7s ease 1.45s forwards;
+}
+
+.intro-line {
+    width: 0;
+    height: 1px;
+    background: rgba(0,0,0,.35);
+    margin: 18px auto 0;
+    animation: lineIn .7s ease 1.8s forwards;
+}
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+#main {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    animation: mainIn .9s ease 3.25s forwards;
+    background:
+        linear-gradient(rgba(4,20,12,.76), rgba(4,18,11,.88)),
+        radial-gradient(circle at 50% 20%, #1c5232 0%, #0c2919 45%, #051009 100%);
+}
+
+/* Futbol sahası çizgileri */
+
+.pitch {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .17;
+    overflow: hidden;
+}
+
+.pitch::before {
+    content: "";
+    position: absolute;
+    width: 145%;
+    height: 70%;
+    left: -22%;
+    top: 17%;
+    border: 2px solid rgba(255,255,255,.5);
+    border-radius: 3px;
+    transform: perspective(600px) rotateX(45deg);
+}
+
+.pitch::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 2px solid rgba(255,255,255,.5);
+    border-radius: 50%;
+    left: 50%;
+    top: 42%;
+    transform: translate(-50%, -50%);
+}
+
+/* Hafif saha ışıkları */
+
+.field-light {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: rgba(73,180,105,.14);
+    filter: blur(70px);
+    pointer-events: none;
+}
+
+.light-one {
+    top: -170px;
+    left: -100px;
+}
+
+.light-two {
+    right: -180px;
+    top: 25%;
+}
+
+.light-three {
+    bottom: -180px;
+    left: 25%;
+}
+
+/* Ana içerik */
+
+.container {
+    position: relative;
+    z-index: 5;
+    width: min(94%, 540px);
+    margin: auto;
+    padding: 30px 0 55px;
+}
+
+/* Üst başlık */
+
+.header {
+    text-align: center;
+}
+
+.header-logo {
+    width: 82px;
+    height: 82px;
+    object-fit: contain;
+    filter: drop-shadow(0 7px 18px rgba(0,0,0,.35));
+}
+
+.header-city {
+    margin-top: 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    opacity: .85;
+}
+
+.header-title {
+    margin-top: 5px;
+    font-size: 24px;
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -.6px;
+}
+
+.header-name {
+    margin-top: 7px;
+    font-family: "Pacifico", cursive;
+    font-size: 23px;
+    color: #fff;
+    text-shadow: 0 3px 15px rgba(0,0,0,.35);
+}
+
+/* =====================================================
+   FOTO SLIDER
+===================================================== */
+
+.slider {
+    position: relative;
+    width: 100%;
+    height: 225px;
+    margin-top: 27px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.17);
+    box-shadow: 0 20px 50px rgba(0,0,0,.28);
+    backdrop-filter: blur(14px);
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-placeholder {
+    text-align: center;
+    opacity: .55;
+}
+
+.slide-placeholder .ball {
+    font-size: 45px;
+    margin-bottom: 8px;
+}
+
+.slide-placeholder p {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+/* =====================================================
+   HIZLI BUTONLAR
+===================================================== */
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 11px;
+    margin-top: 18px;
+}
+
+.quick-btn {
+    min-height: 62px;
+    padding: 10px 9px;
+    border-radius: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,.16);
+    background: rgba(255,255,255,.09);
+    box-shadow: 0 8px 24px rgba(0,0,0,.16);
+    backdrop-filter: blur(18px);
+    transition: transform .2s ease, background .2s ease;
+}
+
+.quick-btn:active {
+    transform: scale(.96);
+}
+
+.icon {
+    width: 27px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background: rgba(255,255,255,.13);
+    font-size: 14px;
+}
+
+/* =====================================================
+   BÜYÜK BUTONLAR
+===================================================== */
+
+.big-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-top: 23px;
+}
+
+.big-btn {
+    min-height: 72px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    border: 1px solid rgba(255,255,255,.18);
+    box-shadow: 0 12px 30px rgba(0,0,0,.24);
+    position: relative;
+    overflow: hidden;
+    transition: transform .2s ease;
+}
+
+.big-btn:active {
+    transform: scale(.97);
+}
+
+.big-btn::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 200%;
+    top: -50%;
+    left: -180px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.22), transparent);
+    transform: rotate(20deg);
+    animation: shine 4s infinite;
+}
+
+.bordo {
+    background: linear-gradient(135deg, #8b1731, #5e0d20);
+}
+
+.mavi {
+    background: linear-gradient(135deg, #173f91, #10285e);
+}
+
+/* =====================================================
+   ÖN KAYIT
+===================================================== */
+
+.register {
+    margin-top: 22px;
+    position: relative;
+}
+
+.register-btn {
+    width: 100%;
+    min-height: 78px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,.3);
+    background:
+        linear-gradient(135deg, rgba(255,255,255,.17), rgba(255,255,255,.06));
+    backdrop-filter: blur(20px);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: .5px;
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.3),
+        inset 0 1px 0 rgba(255,255,255,.2);
+}
+
+/* Alt yazı */
+
+.footer {
+    margin-top: 28px;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 2px;
+    opacity: .4;
+}
+
+/* =====================================================
+   ANİMASYONLAR
+===================================================== */
+
+@keyframes logoIn {
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes slideRight {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes nameIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lineIn {
+    to {
+        width: 130px;
+    }
+}
+
+@keyframes introLight {
+    0%, 100% {
+        transform: scale(.9);
+        opacity: .5;
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: .9;
+    }
+}
+
+@keyframes introOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes mainIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes shine {
+    0% {
+        left: -180px;
+    }
+    35%, 100% {
+        left: 600px;
+    }
+}
+
+/* Küçük ekranlar */
+
+@media (max-width: 380px) {
+    .container {
+        width: 92%;
+    }
+
+    .header-title {
+        font-size: 21px;
+    }
+
+    .slider {
+        height: 195px;
+    }
+
+    .quick-btn {
+        font-size: 11px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section id="intro">
+
+    <div class="intro-content">
+
+        <img
+            src="assets/trabzonspor-logo.png"
+            class="intro-logo"
+            alt="Trabzonspor">
+
+        <div class="intro-city">
+            ALANYA
+        </div>
+
+        <div class="intro-school">
+            <span>TRABZONSPOR</span>
+            <span>FUTBOL OKULU</span>
+        </div>
+
+        <div class="intro-name">
+            Ali Göktaş
+        </div>
+
+        <div class="intro-line"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ANA SAYFA
+===================================================== -->
+
+<main id="main">
+
+    <div class="pitch"></div>
+
+    <div class="field-light light-one"></div>
+    <div class="field-light light-two"></div>
+    <div class="field-light light-three"></div>
+
+    <div class="container">
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <img
+                src="assets/trabzonspor-logo.png"
+                class="header-logo"
+                alt="Trabzonspor">
+
+            <div class="header-city">
+                ALANYA
+            </div>
+
+            <div class="header-title">
+                TRABZONSPOR<br>
+                FUTBOL OKULU
+            </div>
+
+            <div class="header-name">
+                Ali Göktaş
+            </div>
+
+        </header>
+
+
+        <!-- FOTOĞRAF SLIDER -->
+
+        <section class="slider">
+
+            <div class="slide active">
+                <div class="slide-placeholder">
+                    <div class="ball">⚽</div>
+                    <p>FUTBOL OKULUMUZDAN KARELER</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-placeholder">
+                    <div class="ball">🏆</div>
+                    <p>BAŞARI • TAKIM • GELECEK</p>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-placeholder">
+                    <div class="ball">🥅</div>
+                    <p>ANTRENMANLARIMIZ</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- HIZLI ERİŞİM -->
+
+        <section class="quick-grid">
+
+            <a href="tel:+905000000000" class="quick-btn">
+                <span class="icon">☎</span>
+                Telefon
+            </a>
+
+            <a href="#" class="quick-btn">
+                <span class="icon">👤</span>
+                Rehbere Kaydet
+            </a>
+
+            <a href="https://wa.me/905000000000" class="quick-btn">
+                <span class="icon">◉</span>
+                WhatsApp
+            </a>
+
+            <a href="#" class="quick-btn">
+                <span class="icon">⌖</span>
+                Konum
+            </a>
+
+            <a href="#" class="quick-btn">
+                <span class="icon">◎</span>
+                Instagram
+            </a>
+
+            <a href="#" class="quick-btn">
+                <span class="icon">f</span>
+                Facebook
+            </a>
+
+            <a href="#" class="quick-btn">
+                <span class="icon">★</span>
+                Google Değerlendirme
+            </a>
+
+            <a href="#" class="quick-btn">
+                <span class="icon">₺</span>
+                IBAN
+            </a>
+
+        </section>
+
+
+        <!-- BÜYÜK BUTONLAR -->
+
+        <section class="big-buttons">
+
+            <a href="#" class="big-btn bordo">
+                ANTRENMAN FOTOĞRAFLARI
+            </a>
+
+            <a href="#" class="big-btn mavi">
+                FUTBOL OKULUMUZ HAKKINDA
+            </a>
+
+        </section>
+
+
+        <!-- ÖN KAYIT -->
+
+        <section class="register">
+
+            <button class="register-btn">
+                ÖN KAYIT
+            </button>
+
+        </section>
+
+
+        <footer class="footer">
+            ALANYA TRABZONSPOR FUTBOL OKULU
+        </footer>
+
+    </div>
+
+</main>
+
+
+<script>
+
+/* =====================================================
+   FOTOĞRAF SLIDER
+===================================================== */
+
+const slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+
+setInterval(() => {
+
+    slides[currentSlide].classList.remove("active");
+
+    currentSlide++;
+
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+
+    slides[currentSlide].classList.add("active");
+
+}, 3500);
+
+
+/* =====================================================
+   INTRO SONRASI SCROLLU ENGELLE
+===================================================== */
+
+document.body.style.overflow = "hidden";
+
+setTimeout(() => {
+    document.body.style.overflow = "auto";
+}, 3500);
+
+</script>
+
+</body>
+</html>
+```
 
