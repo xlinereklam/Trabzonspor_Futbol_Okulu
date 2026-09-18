@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#6F231C">
+
 <title>Alanya Trabzonspor Futbol Okulu</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -29,9 +31,10 @@ body{
     overflow:hidden;
 }
 
-/* =========================
+
+/* =========================================================
    INTRO
-========================= */
+========================================================= */
 
 #intro{
     position:fixed;
@@ -91,6 +94,9 @@ body{
     color:#222;
     animation:slideUp .8s ease .55s forwards;
 }
+
+
+/* TRABZONSPOR YAZISINA DOKUNULMADI */
 
 .intro-trabzon span{
     font-size:43px;
@@ -160,13 +166,20 @@ body{
 }
 
 @keyframes shineLine{
-    0%,100%{transform:scaleX(.3);opacity:.25}
-    50%{transform:scaleX(1);opacity:.8}
+    0%,100%{
+        transform:scaleX(.3);
+        opacity:.25;
+    }
+    50%{
+        transform:scaleX(1);
+        opacity:.8;
+    }
 }
 
-/* =========================
+
+/* =========================================================
    MAIN
-========================= */
+========================================================= */
 
 #main{
     position:relative;
@@ -174,7 +187,10 @@ body{
     overflow:hidden;
     opacity:0;
     transform:scale(1.02);
-    transition:opacity 1s ease,transform 1.2s ease;
+
+    transition:
+        opacity 1s ease,
+        transform 1.2s ease;
 
     background:
         linear-gradient(
@@ -189,7 +205,8 @@ body{
     transform:scale(1);
 }
 
-/* hareketli ışıklar */
+
+/* Arka plan hareketli ışık */
 
 #main::before,
 #main::after{
@@ -219,13 +236,21 @@ body{
 }
 
 @keyframes floatLight{
-    from{transform:translate(0,0) scale(1)}
-    to{transform:translate(120px,80px) scale(1.25)}
+    from{
+        transform:translate(0,0) scale(1);
+    }
+    to{
+        transform:translate(120px,80px) scale(1.25);
+    }
 }
 
 @keyframes floatLight2{
-    from{transform:translate(0,0) scale(1)}
-    to{transform:translate(-100px,-70px) scale(1.18)}
+    from{
+        transform:translate(0,0) scale(1);
+    }
+    to{
+        transform:translate(-100px,-70px) scale(1.18);
+    }
 }
 
 .field-overlay{
@@ -233,6 +258,7 @@ body{
     inset:0;
     z-index:1;
     pointer-events:none;
+
     background:
         linear-gradient(
             90deg,
@@ -267,9 +293,10 @@ body{
     transform:translate(-50%,-50%);
 }
 
-/* =========================
+
+/* =========================================================
    CONTAINER
-========================= */
+========================================================= */
 
 .container{
     position:relative;
@@ -280,26 +307,95 @@ body{
     padding:30px 18px 40px;
 }
 
-/* =========================
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+.language-switch{
+    position:absolute;
+    top:18px;
+    right:18px;
+    z-index:20;
+
+    display:flex;
+    align-items:center;
+    gap:2px;
+
+    padding:4px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.35);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.2),
+        inset 0 1px 0 rgba(255,255,255,.25);
+}
+
+.lang-btn{
+    border:0;
+    background:transparent;
+    color:rgba(255,255,255,.72);
+
+    font-family:'Inter',sans-serif;
+    font-size:10px;
+    font-weight:800;
+
+    padding:6px 9px;
+    border-radius:20px;
+
+    cursor:pointer;
+    transition:.25s;
+}
+
+.lang-btn.active{
+    background:#fff;
+    color:#6F231C;
+    box-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+
+.lang-btn:hover{
+    color:#fff;
+}
+
+.lang-btn.active:hover{
+    color:#6F231C;
+}
+
+
+/* =========================================================
    HEADER
-========================= */
+========================================================= */
 
 .header{
     text-align:center;
     color:#fff;
+    padding-top:3px;
 }
 
 .header-logo{
     width:82px;
     height:82px;
     object-fit:contain;
-    filter:drop-shadow(0 8px 18px rgba(0,0,0,.4));
+
+    filter:
+        drop-shadow(0 8px 18px rgba(0,0,0,.4));
+
     animation:logoFloat 4s ease-in-out infinite;
 }
 
 @keyframes logoFloat{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-5px)}
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-5px);
+    }
 }
 
 .alanya{
@@ -315,13 +411,19 @@ body{
     line-height:.95;
 }
 
+
+/* TRABZONSPOR YAZISI KORUNDU */
+
 .bordo-text{
     display:block;
     font-size:38px;
     font-weight:900;
     letter-spacing:1px;
+
     color:#6F231C;
+
     -webkit-text-stroke:1.2px #fff;
+
     text-shadow:
         0 4px 18px rgba(0,0,0,.4);
 }
@@ -329,65 +431,87 @@ body{
 .mavi-text{
     display:block;
     margin-top:4px;
+
     font-size:22px;
     font-weight:800;
     letter-spacing:4px;
+
     color:#75B6E5;
+
     -webkit-text-stroke:.8px #fff;
-    text-shadow:0 3px 15px rgba(0,0,0,.35);
+
+    text-shadow:
+        0 3px 15px rgba(0,0,0,.35);
 }
 
 .name{
     margin-top:10px;
+
     font-family:'Allura',cursive;
     font-size:40px;
+
     color:#fff;
-    text-shadow:0 3px 12px rgba(0,0,0,.6);
+
+    text-shadow:
+        0 3px 12px rgba(0,0,0,.6);
 }
 
-/* =========================
-   SLIDER
-========================= */
+
+/* =========================================================
+   FOTOĞRAF SLIDER
+========================================================= */
 
 .slider-frame{
     position:relative;
+
     margin-top:23px;
+
+    /* GOLD ÇERÇEVE */
+
     padding:5px;
+
     border-radius:19px;
-    background:rgba(255,255,255,.92);
+
+    background:#D49E3E;
+
     box-shadow:
-        0 15px 40px rgba(0,0,0,.35),
-        0 0 0 1px rgba(255,255,255,.5);
+        0 12px 35px rgba(0,0,0,.38),
+        0 0 18px rgba(212,158,62,.22);
 }
 
 .slider-frame::before{
     content:"";
+
     position:absolute;
     inset:-1px;
+
     border-radius:20px;
-    padding:1px;
-    background:linear-gradient(
-        120deg,
-        rgba(255,255,255,.95),
-        rgba(255,255,255,.25),
-        rgba(255,255,255,.9)
-    );
-    z-index:-1;
+
+    border:1px solid rgba(255,255,255,.55);
+
+    pointer-events:none;
 }
 
 .slider{
     position:relative;
+
     height:235px;
+
     overflow:hidden;
+
     border-radius:14px;
+
     background:#111;
 }
 
 .slide{
     position:absolute;
     inset:0;
+
     opacity:0;
+
     transform:scale(1.08);
+
     transition:
         opacity 1s ease,
         transform 4.2s ease;
@@ -407,59 +531,97 @@ body{
 
 .slider::after{
     content:"";
+
     position:absolute;
     inset:0;
+
     background:
         linear-gradient(
             180deg,
             transparent 55%,
             rgba(0,0,0,.28)
         );
+
     pointer-events:none;
 }
 
-/* fotoğraf üzerinde ışık taraması */
+
+/* Fotoğraf üzerindeki ışık */
 
 .slider-shine{
     position:absolute;
+
     top:0;
     left:-40%;
+
     width:35%;
     height:100%;
+
     z-index:4;
+
     pointer-events:none;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.20),
-        transparent
-    );
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.20),
+            transparent
+        );
+
     transform:skewX(-18deg);
-    animation:photoShine 5.5s ease-in-out infinite;
+
+    animation:
+        photoShine 5.5s ease-in-out infinite;
 }
 
 @keyframes photoShine{
-    0%,55%{left:-45%;opacity:0}
-    65%{opacity:1}
-    85%{left:125%;opacity:0}
-    100%{left:125%;opacity:0}
+
+    0%,55%{
+        left:-45%;
+        opacity:0;
+    }
+
+    65%{
+        opacity:1;
+    }
+
+    85%{
+        left:125%;
+        opacity:0;
+    }
+
+    100%{
+        left:125%;
+        opacity:0;
+    }
 }
+
+
+/* Slider noktaları */
 
 .slider-dots{
     position:absolute;
+
     left:50%;
     bottom:10px;
+
     transform:translateX(-50%);
+
     display:flex;
     gap:6px;
+
     z-index:6;
 }
 
 .dot{
     width:6px;
     height:6px;
+
     border-radius:50%;
+
     background:rgba(255,255,255,.45);
+
     transition:.4s;
 }
 
@@ -469,48 +631,57 @@ body{
     background:#fff;
 }
 
-/* =========================
+
+/* =========================================================
    QUICK BUTTONS
-========================= */
+   ESKİ BEYAZ GÖRÜNÜM
+========================================================= */
 
 .quick-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2,1fr);
+
     gap:10px;
+
     margin-top:18px;
 }
 
 .quick-btn{
     position:relative;
+
     min-height:58px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     gap:9px;
+
     padding:11px 8px;
+
     border-radius:15px;
+
     text-decoration:none;
 
-    color:#f5f3ef;
+    /* ESKİ BEYAZ */
+
+    color:#ffffff;
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.78),
-            rgba(245,245,240,.60)
-        );
+        rgba(255,255,255,.92);
 
-    border:1px solid rgba(255,255,255,.70);
+    border:
+        1px solid rgba(255,255,255,.95);
 
     box-shadow:
-        0 8px 24px rgba(0,0,0,.20),
-        inset 0 1px 0 rgba(255,255,255,.8);
-
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
+        0 8px 24px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,1);
 
     font-size:12px;
     font-weight:700;
+
     letter-spacing:.2px;
 
     overflow:hidden;
@@ -521,20 +692,71 @@ body{
         background .25s ease;
 }
 
+
+/* Beyaz buton içindeki bordo/mavi ikon */
+
+.quick-btn .icon{
+    color:#6F231C;
+}
+
+.quick-btn:nth-child(2) .icon{
+    color:#75B6E5;
+}
+
+.quick-btn:nth-child(3) .icon{
+    color:#6F231C;
+}
+
+.quick-btn:nth-child(4) .icon{
+    color:#75B6E5;
+}
+
+.quick-btn:nth-child(5) .icon{
+    color:#6F231C;
+}
+
+.quick-btn:nth-child(6) .icon{
+    color:#75B6E5;
+}
+
+.quick-btn:nth-child(7) .icon{
+    color:#6F231C;
+}
+
+.quick-btn:nth-child(8) .icon{
+    color:#75B6E5;
+}
+
+.quick-btn span:last-child{
+    color:#303030;
+    position:relative;
+    z-index:2;
+}
+
+
+/* Buton ışık geçişi */
+
 .quick-btn::before{
     content:"";
+
     position:absolute;
+
     top:0;
     left:-100%;
+
     width:65%;
     height:100%;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.34),
-        transparent
-    );
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.75),
+            transparent
+        );
+
     transform:skewX(-18deg);
+
     transition:left .7s ease;
 }
 
@@ -544,15 +766,12 @@ body{
 
 .quick-btn:hover{
     transform:translateY(-3px);
+
     box-shadow:
         0 12px 28px rgba(0,0,0,.28),
-        inset 0 1px 0 rgba(255,255,255,.9);
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.90),
-            rgba(245,245,240,.72)
-        );
+        inset 0 1px 0 rgba(255,255,255,1);
+
+    background:#fff;
 }
 
 .quick-btn:active{
@@ -562,67 +781,89 @@ body{
 .icon{
     width:20px;
     height:20px;
+
     flex:none;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    color:#fff;
-    filter:drop-shadow(0 2px 4px rgba(0,0,0,.35));
 }
 
 .icon svg{
     width:20px;
     height:20px;
+
     stroke:currentColor;
     fill:none;
+
     stroke-width:1.8;
+
     stroke-linecap:round;
     stroke-linejoin:round;
 }
 
-.quick-btn span:last-child{
-    position:relative;
-    z-index:2;
-}
 
-/* =========================
-   BIG BUTTONS
-========================= */
+/* =========================================================
+   BÜYÜK BUTONLAR
+========================================================= */
 
 .big-buttons{
     margin-top:16px;
+
     display:flex;
     flex-direction:column;
+
     gap:11px;
 }
 
 .big-btn{
     position:relative;
+
     min-height:62px;
+
     border-radius:16px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     text-align:center;
+
     text-decoration:none;
+
     color:#fff;
+
     font-size:14px;
     font-weight:800;
+
     letter-spacing:.7px;
+
     overflow:hidden;
-    box-shadow:0 10px 28px rgba(0,0,0,.3);
-    transition:transform .25s ease,box-shadow .25s ease;
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,.3);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
 }
 
 .big-btn::after{
     content:"";
+
     position:absolute;
+
     width:45%;
     height:180%;
+
     top:-40%;
     left:-70%;
-    background:rgba(255,255,255,.13);
+
+    background:
+        rgba(255,255,255,.13);
+
     transform:rotate(20deg);
+
     transition:left .7s ease;
 }
 
@@ -632,7 +873,9 @@ body{
 
 .big-btn:hover{
     transform:translateY(-3px);
-    box-shadow:0 15px 34px rgba(0,0,0,.4);
+
+    box-shadow:
+        0 15px 34px rgba(0,0,0,.4);
 }
 
 .bordo-btn{
@@ -644,53 +887,82 @@ body{
     color:#09202d;
 }
 
-/* =========================
-   REGISTER
-========================= */
+
+/* =========================================================
+   ÖN KAYIT
+========================================================= */
 
 .register{
     position:relative;
+
     margin-top:14px;
+
     min-height:68px;
+
     border-radius:17px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     text-decoration:none;
+
     color:#fff;
+
     background:#D49E3E;
+
     font-size:16px;
     font-weight:900;
+
     letter-spacing:1.4px;
+
     box-shadow:
         0 12px 32px rgba(0,0,0,.3),
         0 0 0 1px rgba(255,255,255,.15);
+
     overflow:hidden;
-    transition:transform .25s ease,box-shadow .25s ease;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
 }
 
 .register::before{
     content:"";
+
     position:absolute;
     inset:0;
-    background:linear-gradient(
-        110deg,
-        transparent 25%,
-        rgba(255,255,255,.25) 45%,
-        transparent 65%
-    );
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 25%,
+            rgba(255,255,255,.25) 45%,
+            transparent 65%
+        );
+
     transform:translateX(-120%);
-    animation:registerShine 4s ease-in-out infinite;
+
+    animation:
+        registerShine 4s ease-in-out infinite;
 }
 
 @keyframes registerShine{
-    0%,55%{transform:translateX(-120%)}
-    75%,100%{transform:translateX(120%)}
+
+    0%,55%{
+        transform:translateX(-120%);
+    }
+
+    75%,100%{
+        transform:translateX(120%);
+    }
 }
 
 .register:hover{
     transform:translateY(-3px);
-    box-shadow:0 16px 36px rgba(0,0,0,.4);
+
+    box-shadow:
+        0 16px 36px rgba(0,0,0,.4);
 }
 
 .register span{
@@ -698,21 +970,27 @@ body{
     z-index:2;
 }
 
-/* =========================
+
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 .footer{
     text-align:center;
+
     margin-top:18px;
+
     color:rgba(255,255,255,.55);
+
     font-size:10px;
+
     letter-spacing:1px;
 }
 
-/* =========================
+
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media(max-width:390px){
 
@@ -763,15 +1041,23 @@ body{
     .register{
         min-height:62px;
     }
+
+    .language-switch{
+        top:12px;
+        right:12px;
+    }
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
+
+<!-- =========================================================
      INTRO
-========================= -->
+========================================================= -->
 
 <section id="intro">
 
@@ -801,19 +1087,45 @@ body{
         </div>
 
     </div>
+
 </section>
 
 
-<!-- =========================
+
+<!-- =========================================================
      MAIN
-========================= -->
+========================================================= -->
 
 <main id="main">
 
     <div class="field-overlay"></div>
     <div class="pitch-lines"></div>
 
+
     <div class="container">
+
+
+        <!-- LANGUAGE -->
+
+        <div class="language-switch">
+
+            <button
+                class="lang-btn active"
+                onclick="setLanguage('tr')"
+                id="trBtn">
+                TR
+            </button>
+
+            <button
+                class="lang-btn"
+                onclick="setLanguage('en')"
+                id="enBtn">
+                EN
+            </button>
+
+        </div>
+
+
 
         <!-- HEADER -->
 
@@ -829,8 +1141,17 @@ body{
             </div>
 
             <div class="title">
-                <span class="bordo-text">TRABZONSPOR</span>
-                <span class="mavi-text">FUTBOL OKULU</span>
+
+                <!-- TRABZONSPOR DEĞİŞTİRİLMEDİ -->
+
+                <span class="bordo-text">
+                    TRABZONSPOR
+                </span>
+
+                <span class="mavi-text" data-tr="FUTBOL OKULU" data-en="FOOTBALL SCHOOL">
+                    FUTBOL OKULU
+                </span>
+
             </div>
 
             <div class="name">
@@ -840,36 +1161,51 @@ body{
         </header>
 
 
-        <!-- PHOTO SLIDER -->
+
+        <!-- =================================================
+             SLIDER
+        ================================================== -->
 
         <div class="slider-frame">
 
             <div class="slider">
 
                 <div class="slide active">
+
                     <img
                         src="assets/antreman01.jpg"
-                        alt="Trabzonspor Futbol Okulu Antrenman">
+                        alt="Trabzonspor Futbol Okulu">
+
                 </div>
 
+
                 <div class="slide">
+
                     <img
                         src="assets/antreman02.jpg"
-                        alt="Trabzonspor Futbol Okulu Antrenman">
+                        alt="Trabzonspor Futbol Okulu">
+
                 </div>
 
+
                 <div class="slide">
+
                     <img
                         src="assets/antreman03.jpg"
-                        alt="Trabzonspor Futbol Okulu Antrenman">
+                        alt="Trabzonspor Futbol Okulu">
+
                 </div>
+
 
                 <div class="slider-shine"></div>
 
+
                 <div class="slider-dots">
+
                     <span class="dot active"></span>
                     <span class="dot"></span>
                     <span class="dot"></span>
+
                 </div>
 
             </div>
@@ -877,16 +1213,24 @@ body{
         </div>
 
 
-        <!-- QUICK BUTTONS -->
+
+        <!-- =================================================
+             QUICK BUTTONS
+        ================================================== -->
 
         <div class="quick-grid">
 
-            <!-- Telefon -->
 
-            <a class="quick-btn" href="tel:+905xxxxxxxxx">
+            <!-- TELEFON -->
+
+            <a
+                class="quick-btn"
+                href="tel:+905447604048">
 
                 <span class="icon">
+
                     <svg viewBox="0 0 24 24">
+
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2
                         19.79 19.79 0 0 1-8.63-3.07
                         19.5 19.5 0 0 1-6-6
@@ -899,229 +1243,361 @@ body{
                         a2 2 0 0 1 2.11-.45
                         c.85.29 1.73.5 2.63.62
                         A2 2 0 0 1 22 16.92z"/>
+
                     </svg>
+
                 </span>
 
-                <span>Telefon</span>
+                <span data-tr="Telefon" data-en="Call">
+                    Telefon
+                </span>
 
             </a>
 
 
-            <!-- Rehbere Kaydet -->
 
-            <a class="quick-btn"
-               href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AAli%20G%C3%B6kta%C5%9F%0AORG%3AAlanya%20Trabzonspor%20Futbol%20Okulu%0ATEL%3A%2B905xxxxxxxxx%0AEND%3AVCARD"
-               download="Ali-Goktas.vcf">
+            <!-- REHBERE KAYDET -->
+
+            <a
+                class="quick-btn"
+                href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AAli%20G%C3%B6kta%C5%9F%0AORG%3AAlanya%20Trabzonspor%20Futbol%20Okulu%0ATEL%3A%2B905447604048%0AEND%3AVCARD"
+                download="Ali-Goktas.vcf">
 
                 <span class="icon">
+
                     <svg viewBox="0 0 24 24">
+
                         <circle cx="9" cy="8" r="4"/>
+
                         <path d="M3 21c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+
                         <path d="M19 8v6"/>
+
                         <path d="M16 11h6"/>
+
                     </svg>
+
                 </span>
 
-                <span>Rehbere Kaydet</span>
+                <span data-tr="Rehbere Kaydet" data-en="Save Contact">
+                    Rehbere Kaydet
+                </span>
 
             </a>
 
 
-            <!-- WhatsApp -->
 
-            <a class="quick-btn"
-               href="https://wa.me/905xxxxxxxxx"
-               target="_blank">
+            <!-- WHATSAPP -->
+
+            <a
+                class="quick-btn"
+                href="https://wa.me/905447604048"
+                target="_blank">
 
                 <span class="icon">
+
                     <svg viewBox="0 0 24 24">
+
                         <path d="M21 11.5a8.38 8.38 0 0 1-9
                         8.3 8.5 8.5 0 0 1-4-.9L3 20l1.2-4.7
                         a8.3 8.3 0 1 1 16.8-3.8z"/>
+
                         <path d="M8 9.5c.3 1.7 2.2 3.6 4 4
                         .6.2 1.2-.1 1.5-.6l.4-.7"/>
+
                     </svg>
+
                 </span>
 
-                <span>WhatsApp</span>
+                <span data-tr="WhatsApp" data-en="WhatsApp">
+                    WhatsApp
+                </span>
 
             </a>
 
 
-            <!-- Konum -->
 
-            <a class="quick-btn"
-               href="https://maps.google.com/"
-               target="_blank">
+            <!-- KONUM -->
+
+            <a
+                class="quick-btn"
+                href="https://maps.google.com/"
+                target="_blank">
 
                 <span class="icon">
+
                     <svg viewBox="0 0 24 24">
+
                         <path d="M20 10c0 5-8 11-8 11S4 15 4 10
                         a8 8 0 1 1 16 0z"/>
+
                         <circle cx="12" cy="10" r="2.5"/>
+
                     </svg>
+
                 </span>
 
-                <span>Konum</span>
+                <span data-tr="Konum" data-en="Location">
+                    Konum
+                </span>
 
             </a>
 
 
-            <!-- Instagram -->
 
-            <a class="quick-btn"
-               href="#"
-               target="_blank">
+            <!-- INSTAGRAM -->
+
+            <a
+                class="quick-btn"
+                href="https://www.instagram.com/ts_alanyafutbolokulu/"
+                target="_blank">
 
                 <span class="icon">
+
                     <svg viewBox="0 0 24 24">
+
                         <rect x="3" y="3" width="18" height="18" rx="5"/>
+
                         <circle cx="12" cy="12" r="4"/>
+
                         <circle cx="17.5" cy="6.5" r="1"/>
+
                     </svg>
+
                 </span>
 
-                <span>Instagram</span>
+                <span data-tr="Instagram" data-en="Instagram">
+                    Instagram
+                </span>
 
             </a>
 
 
-            <!-- Facebook -->
 
-            <a class="quick-btn"
-               href="#"
-               target="_blank">
+            <!-- FACEBOOK -->
+
+            <a
+                class="quick-btn"
+                href="#"
+                target="_blank">
 
                 <span class="icon">
+
                     <svg viewBox="0 0 24 24">
+
                         <path d="M15 3h3V0h-3a6 6 0 0 0-6 6v3H6v4h3v8h4v-8h3l1-4h-4V6a2 2 0 0 1 2-3z"/>
+
                     </svg>
+
                 </span>
 
-                <span>Facebook</span>
+                <span data-tr="Facebook" data-en="Facebook">
+                    Facebook
+                </span>
 
             </a>
 
 
-            <!-- Google -->
 
-            <a class="quick-btn"
-               href="#"
-               target="_blank">
+            <!-- GOOGLE -->
+
+            <a
+                class="quick-btn"
+                href="#"
+                target="_blank">
 
                 <span class="icon">
+
                     <svg viewBox="0 0 24 24">
+
                         <path d="M21 12.2c0-.7-.1-1.4-.2-2H12v3.8h5
                         a4.8 4.8 0 0 1-1.9 3.1v2.6h3.1
                         c1.8-1.7 2.8-4.2 2.8-7.5z"/>
+
                         <path d="M12 21c2.6 0 4.8-.9 6.2-2.4
                         l-3.1-2.6c-.9.6-1.9 1-3.1 1
                         -2.4 0-4.4-1.6-5.1-3.8H3.7v2.7
                         A9.4 9.4 0 0 0 12 21z"/>
+
                     </svg>
+
                 </span>
 
-                <span>Google Değerlendirme</span>
+                <span data-tr="Google Değerlendirme" data-en="Google Review">
+                    Google Değerlendirme
+                </span>
 
             </a>
+
 
 
             <!-- IBAN -->
 
-            <a class="quick-btn"
-               href="#">
+            <a
+                class="quick-btn"
+                href="#">
 
                 <span class="icon">
+
                     <svg viewBox="0 0 24 24">
+
                         <rect x="3" y="5" width="18" height="14" rx="2"/>
+
                         <path d="M3 10h18"/>
+
                         <path d="M7 15h4"/>
+
                     </svg>
+
                 </span>
 
-                <span>IBAN</span>
+                <span data-tr="IBAN" data-en="IBAN">
+                    IBAN
+                </span>
 
             </a>
 
         </div>
 
 
-        <!-- BIG BUTTONS -->
+
+        <!-- =================================================
+             BIG BUTTONS
+        ================================================== -->
 
         <div class="big-buttons">
 
-            <a href="#" class="big-btn bordo-btn">
+
+            <a
+                href="#"
+                class="big-btn bordo-btn"
+                data-tr="ANTREMANLARIMIZDAN GÖRÜNTÜLER"
+                data-en="TRAINING GALLERY">
+
                 ANTREMANLARIMIZDAN GÖRÜNTÜLER
+
             </a>
 
-            <a href="#" class="big-btn mavi-btn">
+
+            <a
+                href="#"
+                class="big-btn mavi-btn"
+                data-tr="FUTBOL OKULUMUZ HAKKINDA"
+                data-en="ABOUT OUR FOOTBALL SCHOOL">
+
                 FUTBOL OKULUMUZ HAKKINDA
+
             </a>
 
         </div>
 
 
-        <!-- REGISTER -->
 
-        <a href="#" class="register">
-            <span>ÖN KAYIT</span>
+        <!-- =================================================
+             REGISTER
+        ================================================== -->
+
+        <a
+            href="#"
+            class="register">
+
+            <span
+                data-tr="ÖN KAYIT"
+                data-en="PRE-REGISTRATION">
+
+                ÖN KAYIT
+
+            </span>
+
         </a>
 
 
+
         <div class="footer">
+
             ALANYA TRABZONSPOR FUTBOL OKULU
+
         </div>
 
     </div>
+
 </main>
+
 
 
 <script>
 
-/* =========================
-   INTRO → MAIN
-========================= */
+
+/* =========================================================
+   INTRO
+========================================================= */
 
 setTimeout(function(){
 
-    const intro = document.getElementById("intro");
-    const main = document.getElementById("main");
+    const intro =
+        document.getElementById("intro");
+
+    const main =
+        document.getElementById("main");
 
     intro.style.opacity = "0";
-    intro.style.transition = "opacity .8s ease";
+
+    intro.style.transition =
+        "opacity .8s ease";
 
     main.classList.add("active");
 
     document.body.style.overflowY = "auto";
 
     setTimeout(function(){
+
         intro.remove();
+
     },800);
 
 },3500);
 
 
-/* =========================
-   SLIDER
-========================= */
 
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
+/* =========================================================
+   SLIDER
+========================================================= */
+
+const slides =
+    document.querySelectorAll(".slide");
+
+const dots =
+    document.querySelectorAll(".dot");
 
 let currentSlide = 0;
+
 
 function showSlide(index){
 
     slides.forEach((slide,i)=>{
-        slide.classList.toggle("active",i === index);
+
+        slide.classList.toggle(
+            "active",
+            i === index
+        );
+
     });
+
 
     dots.forEach((dot,i)=>{
-        dot.classList.toggle("active",i === index);
+
+        dot.classList.toggle(
+            "active",
+            i === index
+        );
+
     });
 
+
     currentSlide = index;
+
 }
+
 
 setInterval(function(){
 
@@ -1136,19 +1612,88 @@ setInterval(function(){
 },3500);
 
 
-/* =========================
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+function setLanguage(lang){
+
+    document.documentElement.lang = lang;
+
+
+    const elements =
+        document.querySelectorAll("[data-tr]");
+
+
+    elements.forEach(function(element){
+
+        const text =
+            element.getAttribute(
+                "data-" + lang
+            );
+
+        if(text){
+            element.textContent = text;
+        }
+
+    });
+
+
+    document.getElementById("trBtn")
+        .classList.toggle(
+            "active",
+            lang === "tr"
+        );
+
+
+    document.getElementById("enBtn")
+        .classList.toggle(
+            "active",
+            lang === "en"
+        );
+
+
+    /* Başlık */
+
+    document.title =
+        lang === "tr"
+        ? "Alanya Trabzonspor Futbol Okulu"
+        : "Alanya Trabzonspor Football School";
+
+}
+
+
+/* =========================================================
    TOUCH FEEDBACK
-========================= */
+========================================================= */
 
-document.querySelectorAll(".quick-btn,.big-btn,.register").forEach(btn=>{
+document
+.querySelectorAll(
+    ".quick-btn,.big-btn,.register"
+)
+.forEach(function(btn){
 
-    btn.addEventListener("touchstart",function(){
-        this.style.transform="scale(.97)";
-    },{passive:true});
+    btn.addEventListener(
+        "touchstart",
+        function(){
 
-    btn.addEventListener("touchend",function(){
-        this.style.transform="";
-    },{passive:true});
+            this.style.transform =
+                "scale(.97)";
+
+        },
+        {passive:true}
+    );
+
+
+    btn.addEventListener(
+        "touchend",
+        function(){
+
+            this.style.transform = "";
+
+        }
+    );
 
 });
 
