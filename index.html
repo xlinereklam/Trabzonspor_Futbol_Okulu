@@ -95,9 +95,6 @@ body{
     animation:slideUp .8s ease .55s forwards;
 }
 
-
-/* TRABZONSPOR YAZISINA DOKUNULMADI */
-
 .intro-trabzon span{
     font-size:43px;
     line-height:1;
@@ -204,9 +201,6 @@ body{
     opacity:1;
     transform:scale(1);
 }
-
-
-/* Arka plan hareketli ışık */
 
 #main::before,
 #main::after{
@@ -411,9 +405,6 @@ body{
     line-height:.95;
 }
 
-
-/* TRABZONSPOR YAZISI KORUNDU */
-
 .bordo-text{
     display:block;
     font-size:38px;
@@ -465,8 +456,6 @@ body{
     position:relative;
 
     margin-top:23px;
-
-    /* GOLD ÇERÇEVE */
 
     padding:5px;
 
@@ -545,9 +534,6 @@ body{
     pointer-events:none;
 }
 
-
-/* Fotoğraf üzerindeki ışık */
-
 .slider-shine{
     position:absolute;
 
@@ -597,9 +583,6 @@ body{
     }
 }
 
-
-/* Slider noktaları */
-
 .slider-dots{
     position:absolute;
 
@@ -634,7 +617,6 @@ body{
 
 /* =========================================================
    QUICK BUTTONS
-   ESKİ BEYAZ GÖRÜNÜM
 ========================================================= */
 
 .quick-grid{
@@ -665,8 +647,6 @@ body{
 
     text-decoration:none;
 
-    /* ESKİ BEYAZ */
-
     color:#ffffff;
 
     background:
@@ -691,9 +671,6 @@ body{
         box-shadow .25s ease,
         background .25s ease;
 }
-
-
-/* Beyaz buton içindeki bordo/mavi ikon */
 
 .quick-btn .icon{
     color:#6F231C;
@@ -732,9 +709,6 @@ body{
     position:relative;
     z-index:2;
 }
-
-
-/* Buton ışık geçişi */
 
 .quick-btn::before{
     content:"";
@@ -889,6 +863,121 @@ body{
 
 
 /* =========================================================
+   SMART KARTI PAYLAŞ
+========================================================= */
+
+.share-card{
+    position:relative;
+
+    margin-top:13px;
+
+    min-height:52px;
+
+    width:100%;
+
+    border-radius:15px;
+
+    border:1px solid rgba(255,255,255,.48);
+
+    background:rgba(255,255,255,.13);
+
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:9px;
+
+    font-family:'Inter',sans-serif;
+
+    font-size:12px;
+    font-weight:800;
+
+    letter-spacing:.7px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.18);
+
+    overflow:hidden;
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+.share-card::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-100%;
+
+    width:60%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.22),
+            transparent
+        );
+
+    transform:skewX(-18deg);
+
+    transition:left .7s ease;
+}
+
+.share-card:hover::before{
+    left:140%;
+}
+
+.share-card:hover{
+    transform:translateY(-2px);
+
+    background:rgba(255,255,255,.19);
+
+    box-shadow:
+        0 12px 28px rgba(0,0,0,.3);
+}
+
+.share-card:active{
+    transform:scale(.98);
+}
+
+.share-icon{
+    width:19px;
+    height:19px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.share-icon svg{
+    width:19px;
+    height:19px;
+
+    stroke:#fff;
+    fill:none;
+
+    stroke-width:1.8;
+
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+
+/* =========================================================
    ÖN KAYIT
 ========================================================= */
 
@@ -972,17 +1061,135 @@ body{
 
 
 /* =========================================================
+   XLINE FOOTER
+========================================================= */
+
+.xline-footer{
+    margin-top:28px;
+
+    text-align:center;
+
+    padding-bottom:5px;
+}
+
+.xline-logo{
+    width:68px;
+    max-width:68px;
+    height:auto;
+
+    object-fit:contain;
+
+    opacity:.88;
+
+    filter:
+        drop-shadow(0 3px 8px rgba(0,0,0,.35));
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease;
+}
+
+.xline-logo:hover{
+    opacity:1;
+    transform:translateY(-2px);
+}
+
+.xline-text{
+    margin-top:8px;
+
+    max-width:330px;
+
+    margin-left:auto;
+    margin-right:auto;
+
+    color:rgba(255,255,255,.58);
+
+    font-size:8px;
+
+    line-height:1.5;
+
+    letter-spacing:.15px;
+}
+
+.xline-contact{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:6px;
+
+    margin-top:6px;
+
+    min-height:29px;
+
+    padding:0 13px;
+
+    border-radius:20px;
+
+    text-decoration:none;
+
+    color:#fff;
+
+    background:
+        rgba(111,35,28,.76);
+
+    border:
+        1px solid rgba(255,255,255,.25);
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.22);
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.xline-contact:hover{
+    transform:translateY(-2px);
+    background:#6F231C;
+}
+
+.xline-whatsapp{
+    width:13px;
+    height:13px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.xline-whatsapp svg{
+    width:13px;
+    height:13px;
+
+    stroke:#fff;
+    fill:none;
+
+    stroke-width:1.8;
+
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+
+/* =========================================================
    FOOTER
 ========================================================= */
 
 .footer{
     text-align:center;
 
-    margin-top:18px;
+    margin-top:12px;
 
-    color:rgba(255,255,255,.55);
+    color:rgba(255,255,255,.45);
 
-    font-size:10px;
+    font-size:8px;
 
     letter-spacing:1px;
 }
@@ -1046,6 +1253,11 @@ body{
         top:12px;
         right:12px;
     }
+
+    .xline-footer{
+        margin-top:22px;
+    }
+
 }
 
 </style>
@@ -1142,14 +1354,17 @@ body{
 
             <div class="title">
 
-                <!-- TRABZONSPOR DEĞİŞTİRİLMEDİ -->
-
                 <span class="bordo-text">
                     TRABZONSPOR
                 </span>
 
-                <span class="mavi-text" data-tr="FUTBOL OKULU" data-en="FOOTBALL SCHOOL">
+                <span
+                    class="mavi-text"
+                    data-tr="FUTBOL OKULU"
+                    data-en="FOOTBALL SCHOOL">
+
                     FUTBOL OKULU
+
                 </span>
 
             </div>
@@ -1467,7 +1682,6 @@ body{
 
         <div class="big-buttons">
 
-
             <a
                 href="#"
                 class="big-btn bordo-btn"
@@ -1494,7 +1708,42 @@ body{
 
 
         <!-- =================================================
-             REGISTER
+             SMART KARTI PAYLAŞ
+        ================================================== -->
+
+        <button
+            class="share-card"
+            onclick="shareSmartCard()">
+
+            <span class="share-icon">
+
+                <svg viewBox="0 0 24 24">
+
+                    <circle cx="18" cy="5" r="3"/>
+                    <circle cx="6" cy="12" r="3"/>
+                    <circle cx="18" cy="19" r="3"/>
+
+                    <path d="M8.6 10.7l6.8-4"/>
+                    <path d="M8.6 13.3l6.8 4"/>
+
+                </svg>
+
+            </span>
+
+            <span
+                data-tr="SMART KARTI PAYLAŞ"
+                data-en="SHARE SMART CARD">
+
+                SMART KARTI PAYLAŞ
+
+            </span>
+
+        </button>
+
+
+
+        <!-- =================================================
+             ÖN KAYIT
         ================================================== -->
 
         <a
@@ -1513,10 +1762,59 @@ body{
 
 
 
+        <!-- =================================================
+             XLINE REKLAM
+        ================================================== -->
+
+        <div class="xline-footer">
+
+            <img
+                src="assets/xlinelogo.png"
+                class="xline-logo"
+                alt="XLine Reklam">
+
+
+            <div
+                class="xline-text"
+                data-tr="Business Smart Kart XLine Reklam tarafından hazırlanmıştır. Detaylı bilgi için:"
+                data-en="Business Smart Card prepared by XLine Reklam. For detailed information:">
+
+                Business Smart Kart XLine Reklam tarafından hazırlanmıştır.
+                Detaylı bilgi için:
+
+            </div>
+
+
+            <a
+                href="https://wa.me/905535964626"
+                target="_blank"
+                class="xline-contact">
+
+                <span class="xline-whatsapp">
+
+                    <svg viewBox="0 0 24 24">
+
+                        <path d="M21 11.5a8.38 8.38 0 0 1-9
+                        8.3 8.5 8.5 0 0 1-4-.9L3 20l1.2-4.7
+                        a8.3 8.3 0 1 1 16.8-3.8z"/>
+
+                        <path d="M8 9.5c.3 1.7 2.2 3.6 4 4
+                        .6.2 1.2-.1 1.5-.6l.4-.7"/>
+
+                    </svg>
+
+                </span>
+
+                <span>0553 596 46 26</span>
+
+            </a>
+
+        </div>
+
+
+
         <div class="footer">
-
             ALANYA TRABZONSPOR FUTBOL OKULU
-
         </div>
 
     </div>
@@ -1614,7 +1912,7 @@ setInterval(function(){
 
 
 /* =========================================================
-   LANGUAGE
+   DİL
 ========================================================= */
 
 function setLanguage(lang){
@@ -1640,21 +1938,21 @@ function setLanguage(lang){
     });
 
 
-    document.getElementById("trBtn")
+    document
+        .getElementById("trBtn")
         .classList.toggle(
             "active",
             lang === "tr"
         );
 
 
-    document.getElementById("enBtn")
+    document
+        .getElementById("enBtn")
         .classList.toggle(
             "active",
             lang === "en"
         );
 
-
-    /* Başlık */
 
     document.title =
         lang === "tr"
@@ -1665,12 +1963,88 @@ function setLanguage(lang){
 
 
 /* =========================================================
+   SMART KART PAYLAŞ
+========================================================= */
+
+async function shareSmartCard(){
+
+    const shareData = {
+
+        title:
+            "Alanya Trabzonspor Futbol Okulu",
+
+        text:
+            "Alanya Trabzonspor Futbol Okulu Business Smart Kart",
+
+        url:
+            window.location.href
+
+    };
+
+
+    try{
+
+        if(
+            navigator.share &&
+            navigator.canShare &&
+            navigator.canShare(shareData)
+        ){
+
+            await navigator.share(shareData);
+
+        }else if(navigator.share){
+
+            await navigator.share(shareData);
+
+        }else{
+
+            await navigator.clipboard.writeText(
+                window.location.href
+            );
+
+            alert(
+                "Smart Kart bağlantısı kopyalandı."
+            );
+
+        }
+
+    }catch(error){
+
+        if(error.name !== "AbortError"){
+
+            try{
+
+                await navigator.clipboard.writeText(
+                    window.location.href
+                );
+
+                alert(
+                    "Smart Kart bağlantısı kopyalandı."
+                );
+
+            }catch(e){
+
+                alert(
+                    "Paylaşım bağlantısı: " +
+                    window.location.href
+                );
+
+            }
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
    TOUCH FEEDBACK
 ========================================================= */
 
 document
 .querySelectorAll(
-    ".quick-btn,.big-btn,.register"
+    ".quick-btn,.big-btn,.register,.share-card,.xline-contact"
 )
 .forEach(function(btn){
 
