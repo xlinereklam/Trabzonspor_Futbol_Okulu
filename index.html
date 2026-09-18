@@ -3,915 +3,779 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<title>Alanya Trabzonspor Futbol Okulu | Ali Göktaş</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#6F231C">
+<title>Alanya Trabzonspor Futbol Okulu</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Allura&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-
-:root {
-    --bordo: #6F231C;
-    --mavi: #75B6E5;
-    --altin: #D49E3E;
-    --beyaz: #ffffff;
-    --cam: rgba(255,255,255,.105);
-    --cam-border: rgba(255,255,255,.19);
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+html,body{
+    width:100%;
+    min-height:100%;
+    font-family:'Inter',sans-serif;
+    background:#06100b;
 }
 
-html,
-body {
-    width: 100%;
-    min-height: 100%;
-    font-family: "Inter", sans-serif;
-    background: #06100b;
-    color: white;
+body{
+    overflow:hidden;
 }
 
-body {
-    overflow-x: hidden;
-}
-
-/* =====================================================
+/* =========================
    INTRO
-===================================================== */
+========================= */
 
-#intro {
-    position: fixed;
-    inset: 0;
-    z-index: 99999;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        radial-gradient(
-            circle at 50% 40%,
-            #ffffff 0%,
-            #f7f7f7 40%,
-            #e7e7e7 100%
-        );
-
-    color: #171717;
-
-    overflow: hidden;
-
-    animation: introOut .8s ease 3.25s forwards;
+#intro{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:#f8f8f5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
 }
 
-#intro::before {
-    content: "";
-    position: absolute;
-    inset: -50%;
-
-    background:
-        repeating-linear-gradient(
-            115deg,
-            rgba(0,0,0,.018) 0px,
-            rgba(0,0,0,.018) 1px,
-            transparent 1px,
-            transparent 5px
-        );
-
-    transform: rotate(-8deg);
-    opacity: .75;
-}
-
-#intro::after {
-    content: "";
-
-    position: absolute;
-
-    width: 520px;
-    height: 520px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.95),
-            transparent 68%
-        );
-
-    filter: blur(12px);
-
-    animation: introLight 3s ease-in-out infinite;
-}
-
-.intro-content {
-    position: relative;
-    z-index: 5;
-
-    width: 90%;
-    max-width: 500px;
-
-    text-align: center;
-}
-
-.intro-logo {
-    width: 115px;
-    height: 115px;
-
-    object-fit: contain;
-
-    opacity: 0;
-
-    transform:
-        scale(.65)
-        translateY(-15px);
-
-    animation:
-        logoIn .8s cubic-bezier(.2,.8,.2,1) .15s forwards;
-
-    filter:
-        drop-shadow(0 8px 18px rgba(0,0,0,.14));
-}
-
-.intro-city {
-    margin-top: 25px;
-
-    font-size: 15px;
-    font-weight: 700;
-
-    letter-spacing: 6px;
-
-    opacity: 0;
-
-    transform: translateX(-35px);
-
-    animation:
-        slideRight .65s ease .65s forwards;
-}
-
-.intro-school {
-    margin-top: 8px;
-
-    font-size:
-        clamp(25px, 7vw, 38px);
-
-    line-height: 1.08;
-
-    font-weight: 800;
-
-    letter-spacing: -1px;
-
-    opacity: 0;
-
-    transform: translateX(45px);
-
-    animation:
-        slideLeft .7s cubic-bezier(.2,.8,.2,1) .9s forwards;
-}
-
-.intro-school span {
-    display: block;
-}
-
-.intro-name {
-    margin-top: 17px;
-
-    font-family: "Allura", cursive;
-
-    font-size:
-        clamp(32px, 9vw, 44px);
-
-    color: var(--bordo);
-
-    opacity: 0;
-
-    transform: translateY(22px);
-
-    animation:
-        nameIn .7s ease 1.45s forwards;
-}
-
-.intro-line {
-    width: 0;
-    height: 1px;
-
-    background: rgba(0,0,0,.28);
-
-    margin: 12px auto 0;
-
-    animation:
-        lineIn .7s ease 1.8s forwards;
-}
-
-
-/* =====================================================
-   MAIN BACKGROUND
-===================================================== */
-
-#main {
-    min-height: 100vh;
-
-    position: relative;
-
-    overflow: hidden;
-
-    opacity: 0;
-
-    animation:
-        mainIn .9s ease 3.3s forwards;
-
+#intro::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.28;
     background-image:
-        linear-gradient(
-            rgba(3,13,8,.64),
-            rgba(3,15,9,.90)
-        ),
-        url("assets/futbol-background.jpg");
-
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+        radial-gradient(rgba(0,0,0,.12) .7px,transparent .7px);
+    background-size:5px 5px;
+    pointer-events:none;
 }
 
+.intro-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:500px;
+    text-align:center;
+    padding:30px;
+}
 
-/* =====================================================
-   ATMOSPHERE
-===================================================== */
+.intro-logo{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    opacity:0;
+    transform:scale(.65) rotate(-8deg);
+    animation:introLogo 1s cubic-bezier(.2,.8,.2,1) .15s forwards;
+}
 
-.field-overlay {
-    position: absolute;
-    inset: 0;
+.intro-line{
+    overflow:hidden;
+    margin-top:12px;
+}
 
-    pointer-events: none;
+.intro-line span{
+    display:block;
+    transform:translateY(110%);
+    opacity:0;
+}
+
+.intro-alanya span{
+    font-size:18px;
+    font-weight:800;
+    letter-spacing:7px;
+    color:#222;
+    animation:slideUp .8s ease .55s forwards;
+}
+
+.intro-trabzon span{
+    font-size:43px;
+    line-height:1;
+    font-weight:900;
+    letter-spacing:2px;
+    color:#6F231C;
+    -webkit-text-stroke:1px #fff;
+    text-shadow:0 3px 15px rgba(111,35,28,.12);
+    animation:slideUp .8s ease .75s forwards;
+}
+
+.intro-futbol span{
+    font-size:24px;
+    line-height:1.1;
+    font-weight:800;
+    letter-spacing:4px;
+    color:#75B6E5;
+    -webkit-text-stroke:.7px #fff;
+    animation:slideUp .8s ease .9s forwards;
+}
+
+.intro-name{
+    margin-top:20px;
+    font-family:'Allura',cursive;
+    font-size:43px;
+    color:#252525;
+    opacity:0;
+    transform:translateY(15px);
+    animation:introName .9s ease 1.15s forwards;
+}
+
+.intro-line-shine{
+    position:absolute;
+    width:70%;
+    height:2px;
+    left:15%;
+    top:50%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(111,35,28,.18),
+        transparent
+    );
+    animation:shineLine 2.5s ease-in-out 1.2s infinite;
+}
+
+@keyframes introLogo{
+    to{
+        opacity:1;
+        transform:scale(1) rotate(0);
+    }
+}
+
+@keyframes slideUp{
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+@keyframes introName{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes shineLine{
+    0%,100%{transform:scaleX(.3);opacity:.25}
+    50%{transform:scaleX(1);opacity:.8}
+}
+
+/* =========================
+   MAIN
+========================= */
+
+#main{
+    position:relative;
+    min-height:100vh;
+    overflow:hidden;
+    opacity:0;
+    transform:scale(1.02);
+    transition:opacity 1s ease,transform 1.2s ease;
 
     background:
-        radial-gradient(
-            circle at 50% 15%,
-            rgba(117,182,229,.12),
-            transparent 35%
+        linear-gradient(
+            rgba(3,13,8,.62),
+            rgba(3,15,9,.91)
         ),
-        radial-gradient(
-            circle at 10% 70%,
-            rgba(111,35,28,.18),
-            transparent 35%
+        url("assets/futbol-background.jpg") center/cover fixed;
+}
+
+#main.active{
+    opacity:1;
+    transform:scale(1);
+}
+
+/* hareketli ışıklar */
+
+#main::before,
+#main::after{
+    content:"";
+    position:absolute;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    filter:blur(70px);
+    pointer-events:none;
+    opacity:.13;
+    z-index:0;
+}
+
+#main::before{
+    background:#75B6E5;
+    top:-160px;
+    left:-180px;
+    animation:floatLight 10s ease-in-out infinite alternate;
+}
+
+#main::after{
+    background:#6F231C;
+    right:-170px;
+    bottom:-160px;
+    animation:floatLight2 13s ease-in-out infinite alternate;
+}
+
+@keyframes floatLight{
+    from{transform:translate(0,0) scale(1)}
+    to{transform:translate(120px,80px) scale(1.25)}
+}
+
+@keyframes floatLight2{
+    from{transform:translate(0,0) scale(1)}
+    to{transform:translate(-100px,-70px) scale(1.18)}
+}
+
+.field-overlay{
+    position:absolute;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:
+        linear-gradient(
+            90deg,
+            transparent 49.8%,
+            rgba(255,255,255,.035) 50%,
+            transparent 50.2%
         );
-
-    z-index: 1;
 }
 
-.pitch-lines {
-    position: absolute;
-    inset: 0;
-
-    pointer-events: none;
-
-    opacity: .10;
-
-    z-index: 2;
+.pitch-lines{
+    position:absolute;
+    width:520px;
+    height:520px;
+    border:1px solid rgba(255,255,255,.035);
+    border-radius:50%;
+    left:50%;
+    top:42%;
+    transform:translate(-50%,-50%);
+    pointer-events:none;
+    z-index:1;
 }
 
-.pitch-lines::before {
-    content: "";
-
-    position: absolute;
-
-    width: 130%;
-    height: 70%;
-
-    left: -15%;
-    top: 18%;
-
-    border:
-        2px solid rgba(255,255,255,.45);
-
-    transform:
-        perspective(700px)
-        rotateX(42deg);
+.pitch-lines::after{
+    content:"";
+    position:absolute;
+    width:170px;
+    height:170px;
+    border:1px solid rgba(255,255,255,.035);
+    border-radius:50%;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
 }
 
-.pitch-lines::after {
-    content: "";
-
-    position: absolute;
-
-    width: 260px;
-    height: 260px;
-
-    left: 50%;
-    top: 42%;
-
-    border:
-        2px solid rgba(255,255,255,.45);
-
-    border-radius: 50%;
-
-    transform:
-        translate(-50%,-50%);
-}
-
-
-/* =====================================================
+/* =========================
    CONTAINER
-===================================================== */
+========================= */
 
-.container {
-    position: relative;
-    z-index: 10;
-
-    width: min(94%, 540px);
-
-    margin: auto;
-
-    padding:
-        30px
-        0
-        60px;
+.container{
+    position:relative;
+    z-index:5;
+    width:100%;
+    max-width:540px;
+    margin:auto;
+    padding:30px 18px 40px;
 }
 
-
-/* =====================================================
+/* =========================
    HEADER
-===================================================== */
+========================= */
 
-.header {
-    text-align: center;
+.header{
+    text-align:center;
+    color:#fff;
 }
 
-.header-logo {
-    width: 88px;
-    height: 88px;
-
-    object-fit: contain;
-
-    filter:
-        drop-shadow(0 8px 20px rgba(0,0,0,.42));
+.header-logo{
+    width:82px;
+    height:82px;
+    object-fit:contain;
+    filter:drop-shadow(0 8px 18px rgba(0,0,0,.4));
+    animation:logoFloat 4s ease-in-out infinite;
 }
 
-.header-city {
-    margin-top: 13px;
-
-    font-size: 11px;
-    font-weight: 700;
-
-    letter-spacing: 4px;
-
-    color: rgba(255,255,255,.85);
+@keyframes logoFloat{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-5px)}
 }
 
-.header-title {
-    margin-top: 6px;
+.alanya{
+    margin-top:9px;
+    font-size:15px;
+    font-weight:800;
+    letter-spacing:6px;
+    color:#fff;
+}
 
-    font-size:
-        clamp(23px, 7vw, 31px);
+.title{
+    margin-top:3px;
+    line-height:.95;
+}
 
-    line-height: 1.04;
-
-    font-weight: 800;
-
-    letter-spacing: -.5px;
-
+.bordo-text{
+    display:block;
+    font-size:38px;
+    font-weight:900;
+    letter-spacing:1px;
+    color:#6F231C;
+    -webkit-text-stroke:1.2px #fff;
     text-shadow:
-        0 3px 14px rgba(0,0,0,.55);
+        0 4px 18px rgba(0,0,0,.4);
 }
 
-.header-title .bordo-text {
-    color: var(--bordo);
-
-    -webkit-text-stroke:
-        1.2px rgba(255,255,255,.90);
-
-    paint-order: stroke fill;
+.mavi-text{
+    display:block;
+    margin-top:4px;
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:4px;
+    color:#75B6E5;
+    -webkit-text-stroke:.8px #fff;
+    text-shadow:0 3px 15px rgba(0,0,0,.35);
 }
 
-.header-title .mavi-text {
-    color: var(--mavi);
-
-    -webkit-text-stroke:
-        1.2px rgba(255,255,255,.90);
-
-    paint-order: stroke fill;
+.name{
+    margin-top:10px;
+    font-family:'Allura',cursive;
+    font-size:40px;
+    color:#fff;
+    text-shadow:0 3px 12px rgba(0,0,0,.6);
 }
 
-.header-name {
-    margin-top: 6px;
+/* =========================
+   SLIDER
+========================= */
 
-    font-family: "Allura", cursive;
-
-    font-size: 31px;
-
-    color: #fff;
-
-    text-shadow:
-        0 3px 15px rgba(0,0,0,.55);
-}
-
-
-/* =====================================================
-   PHOTO SLIDER
-===================================================== */
-
-.slider {
-    position: relative;
-
-    width: 100%;
-    height: 245px;
-
-    margin-top: 27px;
-
-    border-radius: 25px;
-
-    overflow: hidden;
-
-    background:
-        rgba(255,255,255,.08);
-
-    border:
-        1px solid rgba(255,255,255,.20);
-
+.slider-frame{
+    position:relative;
+    margin-top:23px;
+    padding:5px;
+    border-radius:19px;
+    background:rgba(255,255,255,.92);
     box-shadow:
-        0 22px 55px rgba(0,0,0,.38);
-
-    backdrop-filter:
-        blur(15px);
+        0 15px 40px rgba(0,0,0,.35),
+        0 0 0 1px rgba(255,255,255,.5);
 }
 
-.slide {
-    position: absolute;
-    inset: 0;
+.slider-frame::before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    border-radius:20px;
+    padding:1px;
+    background:linear-gradient(
+        120deg,
+        rgba(255,255,255,.95),
+        rgba(255,255,255,.25),
+        rgba(255,255,255,.9)
+    );
+    z-index:-1;
+}
 
-    opacity: 0;
+.slider{
+    position:relative;
+    height:235px;
+    overflow:hidden;
+    border-radius:14px;
+    background:#111;
+}
 
+.slide{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    transform:scale(1.08);
     transition:
-        opacity 1s ease;
+        opacity 1s ease,
+        transform 4.2s ease;
 }
 
-.slide.active {
-    opacity: 1;
+.slide.active{
+    opacity:1;
+    transform:scale(1);
 }
 
-.slide img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    display: block;
-
-    transform: scale(1.03);
-
-    transition:
-        transform 5s ease;
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
 
-.slide.active img {
-    transform: scale(1.08);
-}
-
-.slide::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
+.slider::after{
+    content:"";
+    position:absolute;
+    inset:0;
     background:
         linear-gradient(
-            to top,
-            rgba(0,0,0,.42),
-            transparent 50%
+            180deg,
+            transparent 55%,
+            rgba(0,0,0,.28)
         );
+    pointer-events:none;
 }
 
+/* fotoğraf üzerinde ışık taraması */
 
-/* =====================================================
+.slider-shine{
+    position:absolute;
+    top:0;
+    left:-40%;
+    width:35%;
+    height:100%;
+    z-index:4;
+    pointer-events:none;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.20),
+        transparent
+    );
+    transform:skewX(-18deg);
+    animation:photoShine 5.5s ease-in-out infinite;
+}
+
+@keyframes photoShine{
+    0%,55%{left:-45%;opacity:0}
+    65%{opacity:1}
+    85%{left:125%;opacity:0}
+    100%{left:125%;opacity:0}
+}
+
+.slider-dots{
+    position:absolute;
+    left:50%;
+    bottom:10px;
+    transform:translateX(-50%);
+    display:flex;
+    gap:6px;
+    z-index:6;
+}
+
+.dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:rgba(255,255,255,.45);
+    transition:.4s;
+}
+
+.dot.active{
+    width:19px;
+    border-radius:10px;
+    background:#fff;
+}
+
+/* =========================
    QUICK BUTTONS
-===================================================== */
+========================= */
 
-.quick-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 11px;
-
-    margin-top: 18px;
+.quick-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:18px;
 }
 
-.quick-btn {
-    min-height: 64px;
+.quick-btn{
+    position:relative;
+    min-height:58px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:11px 8px;
+    border-radius:15px;
+    text-decoration:none;
 
-    padding:
-        10px 12px;
-
-    border-radius: 17px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 9px;
-
-    color: #fff;
-
-    text-decoration: none;
-
-    font-size: 11.5px;
-    font-weight: 600;
-
-    border:
-        1px solid var(--cam-border);
+    color:#f5f3ef;
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,255,255,.14),
-            rgba(255,255,255,.055)
+            rgba(255,255,255,.78),
+            rgba(245,245,240,.60)
         );
 
-    box-shadow:
-        0 10px 28px rgba(0,0,0,.20),
-        inset 0 1px 0 rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.70);
 
-    backdrop-filter:
-        blur(18px);
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.20),
+        inset 0 1px 0 rgba(255,255,255,.8);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.2px;
+
+    overflow:hidden;
 
     transition:
-        transform .2s ease,
-        background .2s ease;
+        transform .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
 }
 
-.quick-btn:active {
-    transform: scale(.96);
+.quick-btn::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-100%;
+    width:65%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.34),
+        transparent
+    );
+    transform:skewX(-18deg);
+    transition:left .7s ease;
 }
 
-.quick-icon {
-    width: 29px;
-    height: 29px;
+.quick-btn:hover::before{
+    left:140%;
+}
 
-    flex:
-        0 0 29px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 9px;
-
+.quick-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:
+        0 12px 28px rgba(0,0,0,.28),
+        inset 0 1px 0 rgba(255,255,255,.9);
     background:
-        rgba(255,255,255,.12);
-
-    border:
-        1px solid rgba(255,255,255,.12);
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.90),
+            rgba(245,245,240,.72)
+        );
 }
 
-.quick-icon svg {
-    width: 16px;
-    height: 16px;
-
-    stroke: currentColor;
-
-    fill: none;
-
-    stroke-width: 1.7;
-
-    stroke-linecap: round;
-    stroke-linejoin: round;
+.quick-btn:active{
+    transform:scale(.97);
 }
 
+.icon{
+    width:20px;
+    height:20px;
+    flex:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    filter:drop-shadow(0 2px 4px rgba(0,0,0,.35));
+}
 
-/* =====================================================
+.icon svg{
+    width:20px;
+    height:20px;
+    stroke:currentColor;
+    fill:none;
+    stroke-width:1.8;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+}
+
+.quick-btn span:last-child{
+    position:relative;
+    z-index:2;
+}
+
+/* =========================
    BIG BUTTONS
-===================================================== */
+========================= */
 
-.big-buttons {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 13px;
-
-    margin-top: 23px;
+.big-buttons{
+    margin-top:16px;
+    display:flex;
+    flex-direction:column;
+    gap:11px;
 }
 
-.big-btn {
-    min-height: 76px;
-
-    border-radius: 21px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    color: #fff;
-
-    text-decoration: none;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    letter-spacing: .25px;
-
-    border:
-        1px solid rgba(255,255,255,.20);
-
-    box-shadow:
-        0 14px 35px rgba(0,0,0,.28);
-
-    position: relative;
-
-    overflow: hidden;
-
-    transition:
-        transform .2s ease;
+.big-btn{
+    position:relative;
+    min-height:62px;
+    border-radius:16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    text-decoration:none;
+    color:#fff;
+    font-size:14px;
+    font-weight:800;
+    letter-spacing:.7px;
+    overflow:hidden;
+    box-shadow:0 10px 28px rgba(0,0,0,.3);
+    transition:transform .25s ease,box-shadow .25s ease;
 }
 
-.big-btn:active {
-    transform: scale(.97);
+.big-btn::after{
+    content:"";
+    position:absolute;
+    width:45%;
+    height:180%;
+    top:-40%;
+    left:-70%;
+    background:rgba(255,255,255,.13);
+    transform:rotate(20deg);
+    transition:left .7s ease;
 }
 
-.big-btn::after {
-    content: "";
-
-    position: absolute;
-
-    width: 150px;
-    height: 200%;
-
-    top: -50%;
-    left: -180px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.22),
-            transparent
-        );
-
-    transform: rotate(20deg);
-
-    animation:
-        shine 4s infinite;
+.big-btn:hover::after{
+    left:130%;
 }
 
-.bordo {
-    background:
-        linear-gradient(
-            135deg,
-            #6F231C,
-            #501711
-        );
+.big-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 34px rgba(0,0,0,.4);
 }
 
-.mavi {
-    background:
-        linear-gradient(
-            135deg,
-            #75B6E5,
-            #397fae
-        );
+.bordo-btn{
+    background:#6F231C;
 }
 
+.mavi-btn{
+    background:#75B6E5;
+    color:#09202d;
+}
 
-/* =====================================================
+/* =========================
    REGISTER
-===================================================== */
+========================= */
 
-.register {
-    margin-top: 23px;
-}
-
-.register-btn {
-    width: 100%;
-
-    min-height: 80px;
-
-    border-radius: 22px;
-
-    border:
-        1px solid rgba(255,255,255,.45);
-
-    background:
-        linear-gradient(
-            135deg,
-            #D49E3E,
-            #b57d25
-        );
-
-    color: #fff;
-
-    font-size: 19px;
-
-    font-weight: 800;
-
-    letter-spacing: .7px;
-
+.register{
+    position:relative;
+    margin-top:14px;
+    min-height:68px;
+    border-radius:17px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    color:#fff;
+    background:#D49E3E;
+    font-size:16px;
+    font-weight:900;
+    letter-spacing:1.4px;
     box-shadow:
-        0 14px 38px rgba(0,0,0,.32),
-        0 0 0 1px rgba(212,158,62,.20);
-
-    cursor: pointer;
-
-    position: relative;
-
-    overflow: hidden;
+        0 12px 32px rgba(0,0,0,.3),
+        0 0 0 1px rgba(255,255,255,.15);
+    overflow:hidden;
+    transition:transform .25s ease,box-shadow .25s ease;
 }
 
-.register-btn::after {
-    content: "";
-
-    position: absolute;
-
-    width: 100px;
-    height: 180%;
-
-    top: -40%;
-    left: -140px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.35),
-            transparent
-        );
-
-    transform: rotate(20deg);
-
-    animation:
-        registerShine 3.2s infinite;
+.register::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        110deg,
+        transparent 25%,
+        rgba(255,255,255,.25) 45%,
+        transparent 65%
+    );
+    transform:translateX(-120%);
+    animation:registerShine 4s ease-in-out infinite;
 }
 
+@keyframes registerShine{
+    0%,55%{transform:translateX(-120%)}
+    75%,100%{transform:translateX(120%)}
+}
 
-/* =====================================================
+.register:hover{
+    transform:translateY(-3px);
+    box-shadow:0 16px 36px rgba(0,0,0,.4);
+}
+
+.register span{
+    position:relative;
+    z-index:2;
+}
+
+/* =========================
    FOOTER
-===================================================== */
+========================= */
 
-.footer {
-    margin-top: 30px;
-
-    text-align: center;
-
-    font-size: 9px;
-
-    letter-spacing: 2px;
-
-    opacity: .42;
+.footer{
+    text-align:center;
+    margin-top:18px;
+    color:rgba(255,255,255,.55);
+    font-size:10px;
+    letter-spacing:1px;
 }
 
-
-/* =====================================================
-   ANIMATIONS
-===================================================== */
-
-@keyframes logoIn {
-
-    to {
-        opacity: 1;
-
-        transform:
-            scale(1)
-            translateY(0);
-    }
-}
-
-@keyframes slideRight {
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateX(0);
-    }
-}
-
-@keyframes slideLeft {
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateX(0);
-    }
-}
-
-@keyframes nameIn {
-
-    to {
-        opacity: 1;
-
-        transform:
-            translateY(0);
-    }
-}
-
-@keyframes lineIn {
-
-    to {
-        width: 130px;
-    }
-}
-
-@keyframes introLight {
-
-    0%,100% {
-        transform:
-            scale(.9);
-
-        opacity: .5;
-    }
-
-    50% {
-        transform:
-            scale(1.15);
-
-        opacity: .9;
-    }
-}
-
-@keyframes introOut {
-
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-@keyframes mainIn {
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes shine {
-
-    0% {
-        left: -180px;
-    }
-
-    35%,100% {
-        left: 600px;
-    }
-}
-
-@keyframes registerShine {
-
-    0% {
-        left: -140px;
-    }
-
-    45%,100% {
-        left: 600px;
-    }
-}
-
-
-/* =====================================================
+/* =========================
    MOBILE
-===================================================== */
+========================= */
 
-@media (max-width: 380px) {
+@media(max-width:390px){
 
-    .container {
-        width: 92%;
+    .container{
+        padding:24px 14px 32px;
     }
 
-    .header-title {
-        font-size: 21px;
+    .header-logo{
+        width:72px;
+        height:72px;
     }
 
-    .slider {
-        height: 210px;
+    .alanya{
+        font-size:13px;
     }
 
-    .quick-btn {
-        font-size: 10.5px;
+    .bordo-text{
+        font-size:32px;
     }
 
+    .mavi-text{
+        font-size:18px;
+        letter-spacing:3px;
+    }
+
+    .name{
+        font-size:36px;
+    }
+
+    .slider{
+        height:205px;
+    }
+
+    .quick-grid{
+        gap:8px;
+    }
+
+    .quick-btn{
+        min-height:54px;
+        font-size:11px;
+    }
+
+    .big-btn{
+        min-height:58px;
+        font-size:13px;
+    }
+
+    .register{
+        min-height:62px;
+    }
 }
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
+<!-- =========================
      INTRO
-===================================================== -->
+========================= -->
 
 <section id="intro">
+
+    <div class="intro-line-shine"></div>
 
     <div class="intro-content">
 
@@ -920,42 +784,36 @@ body {
             class="intro-logo"
             alt="Trabzonspor">
 
-        <div class="intro-city">
-            ALANYA
+        <div class="intro-line intro-alanya">
+            <span>ALANYA</span>
         </div>
 
-        <div class="intro-school">
-
+        <div class="intro-line intro-trabzon">
             <span>TRABZONSPOR</span>
+        </div>
 
+        <div class="intro-line intro-futbol">
             <span>FUTBOL OKULU</span>
-
         </div>
 
         <div class="intro-name">
             Ali Göktaş
         </div>
 
-        <div class="intro-line"></div>
-
     </div>
-
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      MAIN
-===================================================== -->
+========================= -->
 
 <main id="main">
 
     <div class="field-overlay"></div>
-
     <div class="pitch-lines"></div>
 
-
     <div class="container">
-
 
         <!-- HEADER -->
 
@@ -966,341 +824,333 @@ body {
                 class="header-logo"
                 alt="Trabzonspor">
 
-            <div class="header-city">
+            <div class="alanya">
                 ALANYA
             </div>
 
-            <div class="header-title">
-
-                <span class="bordo-text">
-                    TRABZONSPOR
-                </span>
-
-                <br>
-
-                <span class="mavi-text">
-                    FUTBOL OKULU
-                </span>
-
+            <div class="title">
+                <span class="bordo-text">TRABZONSPOR</span>
+                <span class="mavi-text">FUTBOL OKULU</span>
             </div>
 
-            <div class="header-name">
+            <div class="name">
                 Ali Göktaş
             </div>
 
         </header>
 
 
-        <!-- =================================================
-             SLIDER
-        ================================================== -->
+        <!-- PHOTO SLIDER -->
 
-        <section class="slider">
+        <div class="slider-frame">
 
-            <div class="slide active">
+            <div class="slider">
 
-                <img
-                    src="assets/antreman01.jpg"
-                    alt="Trabzonspor Futbol Okulu">
+                <div class="slide active">
+                    <img
+                        src="assets/antreman01.jpg"
+                        alt="Trabzonspor Futbol Okulu Antrenman">
+                </div>
+
+                <div class="slide">
+                    <img
+                        src="assets/antreman02.jpg"
+                        alt="Trabzonspor Futbol Okulu Antrenman">
+                </div>
+
+                <div class="slide">
+                    <img
+                        src="assets/antreman03.jpg"
+                        alt="Trabzonspor Futbol Okulu Antrenman">
+                </div>
+
+                <div class="slider-shine"></div>
+
+                <div class="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
 
             </div>
 
-            <div class="slide">
-
-                <img
-                    src="assets/antreman02.jpg"
-                    alt="Trabzonspor Futbol Okulu Antrenman">
-
-            </div>
-
-            <div class="slide">
-
-                <img
-                    src="assets/antreman03.jpg"
-                    alt="Trabzonspor Futbol Okulu">
-
-            </div>
-
-        </section>
+        </div>
 
 
-        <!-- =================================================
-             QUICK LINKS
-        ================================================== -->
+        <!-- QUICK BUTTONS -->
 
-        <section class="quick-grid">
+        <div class="quick-grid">
 
+            <!-- Telefon -->
 
-            <!-- TELEFON -->
+            <a class="quick-btn" href="tel:+905xxxxxxxxx">
 
-            <a href="tel:+905000000000" class="quick-btn">
-
-                <span class="quick-icon">
-
+                <span class="icon">
                     <svg viewBox="0 0 24 24">
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2
-                        19.8 19.8 0 0 1-8.63-3.07
+                        19.79 19.79 0 0 1-8.63-3.07
                         19.5 19.5 0 0 1-6-6
-                        A19.8 19.8 0 0 1 2.12 4.18
+                        A19.79 19.79 0 0 1 2.12 4.18
                         2 2 0 0 1 4.11 2h3
                         a2 2 0 0 1 2 1.72
-                        c.12.9.33 1.78.62 2.61
+                        c.12.9.33 1.78.62 2.63
                         a2 2 0 0 1-.45 2.11L8 9.73
-                        a16 16 0 0 0 6 6l1.29-1.29
+                        a16 16 0 0 0 6 6l1.27-1.27
                         a2 2 0 0 1 2.11-.45
-                        c.83.29 1.71.5 2.61.62
+                        c.85.29 1.73.5 2.63.62
                         A2 2 0 0 1 22 16.92z"/>
                     </svg>
-
                 </span>
 
-                Telefon
+                <span>Telefon</span>
 
             </a>
 
 
-            <!-- REHBER -->
+            <!-- Rehbere Kaydet -->
 
-            <a href="#" class="quick-btn">
+            <a class="quick-btn"
+               href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AAli%20G%C3%B6kta%C5%9F%0AORG%3AAlanya%20Trabzonspor%20Futbol%20Okulu%0ATEL%3A%2B905xxxxxxxxx%0AEND%3AVCARD"
+               download="Ali-Goktas.vcf">
 
-                <span class="quick-icon">
-
+                <span class="icon">
                     <svg viewBox="0 0 24 24">
-                        <path d="M16 21v-2a4 4 0 0 0-4-4
-                        H6a4 4 0 0 0-4 4v2"/>
-                        <circle cx="9" cy="7" r="4"/>
-                        <line x1="19" y1="8" x2="19" y2="14"/>
-                        <line x1="22" y1="11" x2="16" y2="11"/>
+                        <circle cx="9" cy="8" r="4"/>
+                        <path d="M3 21c0-3.3 2.7-6 6-6s6 2.7 6 6"/>
+                        <path d="M19 8v6"/>
+                        <path d="M16 11h6"/>
                     </svg>
-
                 </span>
 
-                Rehbere Kaydet
+                <span>Rehbere Kaydet</span>
 
             </a>
 
 
-            <!-- WHATSAPP -->
+            <!-- WhatsApp -->
 
-            <a href="https://wa.me/905000000000" class="quick-btn">
+            <a class="quick-btn"
+               href="https://wa.me/905xxxxxxxxx"
+               target="_blank">
 
-                <span class="quick-icon">
-
+                <span class="icon">
                     <svg viewBox="0 0 24 24">
-                        <path d="M21 11.5a8.4 8.4 0 0 1-9
-                        8.4 8.7 8.7 0 0 1-4.1-1
-                        L3 20l1.2-4.5
-                        A8.3 8.3 0 1 1 21 11.5z"/>
-                        <path d="M8.5 8.5c.2 2
-                        2.5 4.8 5 5.3
-                        l1.3-1.1
-                        c.2-.2.5-.2.8-.1
-                        l1.4.7"/>
+                        <path d="M21 11.5a8.38 8.38 0 0 1-9
+                        8.3 8.5 8.5 0 0 1-4-.9L3 20l1.2-4.7
+                        a8.3 8.3 0 1 1 16.8-3.8z"/>
+                        <path d="M8 9.5c.3 1.7 2.2 3.6 4 4
+                        .6.2 1.2-.1 1.5-.6l.4-.7"/>
                     </svg>
-
                 </span>
 
-                WhatsApp
+                <span>WhatsApp</span>
 
             </a>
 
 
-            <!-- KONUM -->
+            <!-- Konum -->
 
-            <a href="#" class="quick-btn">
+            <a class="quick-btn"
+               href="https://maps.google.com/"
+               target="_blank">
 
-                <span class="quick-icon">
-
+                <span class="icon">
                     <svg viewBox="0 0 24 24">
-                        <path d="M20 10c0 5-8 12-8 12
-                        S4 15 4 10a8 8 0 1 1 16 0z"/>
+                        <path d="M20 10c0 5-8 11-8 11S4 15 4 10
+                        a8 8 0 1 1 16 0z"/>
                         <circle cx="12" cy="10" r="2.5"/>
                     </svg>
-
                 </span>
 
-                Konum
+                <span>Konum</span>
 
             </a>
 
 
-            <!-- INSTAGRAM -->
+            <!-- Instagram -->
 
-            <a href="#" class="quick-btn">
+            <a class="quick-btn"
+               href="#"
+               target="_blank">
 
-                <span class="quick-icon">
-
+                <span class="icon">
                     <svg viewBox="0 0 24 24">
-                        <rect x="3" y="3" width="18" height="18"
-                        rx="5"/>
+                        <rect x="3" y="3" width="18" height="18" rx="5"/>
                         <circle cx="12" cy="12" r="4"/>
-                        <circle cx="17.5" cy="6.5" r=".7"
-                        fill="currentColor"
-                        stroke="none"/>
+                        <circle cx="17.5" cy="6.5" r="1"/>
                     </svg>
-
                 </span>
 
-                Instagram
+                <span>Instagram</span>
 
             </a>
 
 
-            <!-- FACEBOOK -->
+            <!-- Facebook -->
 
-            <a href="#" class="quick-btn">
+            <a class="quick-btn"
+               href="#"
+               target="_blank">
 
-                <span class="quick-icon">
-
+                <span class="icon">
                     <svg viewBox="0 0 24 24">
-                        <path d="M14 8h3V4h-3
-                        c-3 0-5 2-5 5v3H6v4h3v5h4v-5h3
-                        l1-4h-4V9c0-.7.3-1 1-1z"
-                        fill="currentColor"
-                        stroke="none"/>
+                        <path d="M15 3h3V0h-3a6 6 0 0 0-6 6v3H6v4h3v8h4v-8h3l1-4h-4V6a2 2 0 0 1 2-3z"/>
                     </svg>
-
                 </span>
 
-                Facebook
+                <span>Facebook</span>
 
             </a>
 
 
-            <!-- GOOGLE -->
+            <!-- Google -->
 
-            <a href="#" class="quick-btn">
+            <a class="quick-btn"
+               href="#"
+               target="_blank">
 
-                <span class="quick-icon">
-
+                <span class="icon">
                     <svg viewBox="0 0 24 24">
-                        <path d="M12 3l2.1 5.8L20 11
-                        l-5.9 2.2L12 19l-2.1-5.8L4 11
-                        l5.9-2.2L12 3z"/>
+                        <path d="M21 12.2c0-.7-.1-1.4-.2-2H12v3.8h5
+                        a4.8 4.8 0 0 1-1.9 3.1v2.6h3.1
+                        c1.8-1.7 2.8-4.2 2.8-7.5z"/>
+                        <path d="M12 21c2.6 0 4.8-.9 6.2-2.4
+                        l-3.1-2.6c-.9.6-1.9 1-3.1 1
+                        -2.4 0-4.4-1.6-5.1-3.8H3.7v2.7
+                        A9.4 9.4 0 0 0 12 21z"/>
                     </svg>
-
                 </span>
 
-                Google Değerlendirme
+                <span>Google Değerlendirme</span>
 
             </a>
 
 
             <!-- IBAN -->
 
-            <a href="#" class="quick-btn">
+            <a class="quick-btn"
+               href="#">
 
-                <span class="quick-icon">
-
+                <span class="icon">
                     <svg viewBox="0 0 24 24">
-                        <rect x="3" y="6" width="18" height="13"
-                        rx="2"/>
-                        <line x1="3" y1="10" x2="21" y2="10"/>
-                        <line x1="7" y1="15" x2="11" y2="15"/>
+                        <rect x="3" y="5" width="18" height="14" rx="2"/>
+                        <path d="M3 10h18"/>
+                        <path d="M7 15h4"/>
                     </svg>
-
                 </span>
 
-                IBAN
+                <span>IBAN</span>
 
             </a>
 
-
-        </section>
-
-
-        <!-- =================================================
-             BIG BUTTONS
-        ================================================== -->
-
-        <section class="big-buttons">
+        </div>
 
 
-            <a href="#" class="big-btn bordo">
+        <!-- BIG BUTTONS -->
 
+        <div class="big-buttons">
+
+            <a href="#" class="big-btn bordo-btn">
                 ANTREMANLARIMIZDAN GÖRÜNTÜLER
-
             </a>
 
-
-            <a href="#" class="big-btn mavi">
-
+            <a href="#" class="big-btn mavi-btn">
                 FUTBOL OKULUMUZ HAKKINDA
-
             </a>
 
-
-        </section>
-
-
-        <!-- =================================================
-             REGISTER
-        ================================================== -->
-
-        <section class="register">
-
-            <button
-                class="register-btn"
-                type="button">
-
-                ÖN KAYIT
-
-            </button>
-
-        </section>
+        </div>
 
 
-        <footer class="footer">
+        <!-- REGISTER -->
 
+        <a href="#" class="register">
+            <span>ÖN KAYIT</span>
+        </a>
+
+
+        <div class="footer">
             ALANYA TRABZONSPOR FUTBOL OKULU
-
-        </footer>
-
+        </div>
 
     </div>
-
 </main>
 
 
 <script>
 
-/* =====================================================
-   FOTOĞRAF SLIDER
-===================================================== */
+/* =========================
+   INTRO → MAIN
+========================= */
 
-const slides =
-    document.querySelectorAll(".slide");
+setTimeout(function(){
+
+    const intro = document.getElementById("intro");
+    const main = document.getElementById("main");
+
+    intro.style.opacity = "0";
+    intro.style.transition = "opacity .8s ease";
+
+    main.classList.add("active");
+
+    document.body.style.overflowY = "auto";
+
+    setTimeout(function(){
+        intro.remove();
+    },800);
+
+},3500);
+
+
+/* =========================
+   SLIDER
+========================= */
+
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
 
 let currentSlide = 0;
 
-setInterval(() => {
+function showSlide(index){
 
-    slides[currentSlide]
-        .classList.remove("active");
+    slides.forEach((slide,i)=>{
+        slide.classList.toggle("active",i === index);
+    });
+
+    dots.forEach((dot,i)=>{
+        dot.classList.toggle("active",i === index);
+    });
+
+    currentSlide = index;
+}
+
+setInterval(function(){
 
     currentSlide++;
 
-    if (currentSlide >= slides.length) {
+    if(currentSlide >= slides.length){
         currentSlide = 0;
     }
 
-    slides[currentSlide]
-        .classList.add("active");
+    showSlide(currentSlide);
 
-}, 3500);
+},3500);
 
 
-/* =====================================================
-   INTRO SONRASI SCROLL
-===================================================== */
+/* =========================
+   TOUCH FEEDBACK
+========================= */
 
-document.body.style.overflow = "hidden";
+document.querySelectorAll(".quick-btn,.big-btn,.register").forEach(btn=>{
 
-setTimeout(() => {
+    btn.addEventListener("touchstart",function(){
+        this.style.transform="scale(.97)";
+    },{passive:true});
 
-    document.body.style.overflow = "auto";
+    btn.addEventListener("touchend",function(){
+        this.style.transform="";
+    },{passive:true});
 
-}, 3500);
+});
 
 </script>
 
